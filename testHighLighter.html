@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Практика JS</title>
+	
+	<!--	<link href="https://fonts.googleapis.com/css?family=Andika&display=swap" rel="stylesheet">-->
+<!--		<link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">-->
+		<link href="https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap" rel="stylesheet">
+<!--		<link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">-->
+<!--		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">-->
+<!--		<link href="https://fonts.googleapis.com/css?family=Kelly+Slab&display=swap" rel="stylesheet">-->
+	
+	<link rel="stylesheet" href="highlighter/highlighter.css">
+	<link rel="stylesheet" href="testHighLighter.css">
+</head>
+<body>
+	<div class="block">
+		<code class="highlight" data-module="highlight" data-lang="javascript">for (let i = first; i &lt;= last; i++) {
+			// Получим нормализованнй номер билета:
+			let ticket = normalizeNum(num, digitsAmount);
+
+			// Если нормализованный номер счастливый:
+			if (isLucky(ticket)) {
+				result.push(ticket); // запишем счастливый номер в массив
+			}
+		}</code>
+	</div>
+
+	<div class="block">
+		<code class="highlight" data-module="highlight" data-lang="javascript">function getLuckyTickets(digitsAmount) {
+		let result = [];
+
+		let first = getFirst(digitsAmount);
+		let last  = getLast(digitsAmount);
+
+		for (let i = first; i &lt;= last; i++) {
+			let ticketNum = normalizeNum(num, digitsAmount);
+
+			if (isLucky(ticketNum)) {
+				result.push(ticketNum);
+			}
+		}
+
+		return result;
+	}</code>
+	</div>
+	
+	<div class="block">
+		<code class="highlight" data-module="highlight" data-lang="javascript">let exs_21_26  = d.querySelector('#exercises-21-26'),
+		input 		 = exs_21_26.querySelector('#input'),
+		list  		 = exs_21_26.querySelector('#list');
+
+input.addEventListener('keypress', function(event) {
+	if(event.key == 'Enter') {
+		list.insertAdjacentHTML('afterBegin', '<li></li>');
+		
+		let task = d.createElement('span');
+		task.classList.add('task');
+		task.innerHTML = this.value;
+		task.addEventListener('dblclick', function() {
+			if (this.parentElement.querySelector('span > input') != null) {
+				return false; // условие, при котором не будет повторно создаваться input при повторном dblclick
+			} else {
+				let thisSpan  = this.parentElement.querySelector('span'),
+						tempInput = d.createElement('input'),
+						tempValue = tempInput.value = thisSpan.innerText;
+				thisSpan.innerText = "";
+				thisSpan.appendChild(tempInput);
+				tempInput.focus(); // в созданный инпут можно сразу вводить текст (фокус уже на нем)
+				tempInput.addEventListener('keypress', function(event) {
+					if(event.key == 'Enter') {
+						tempValue = this.value;
+						this.parentElement.removeChild(tempInput);
+						thisSpan.innerText = tempValue;
+					};
+				});
+			};
+		});
+		list.querySelector('li').appendChild(task); // найдёт только первый li
+
+		let remove = d.createElement('span');
+		//remove.classList.add('remove');
+		remove.classList.add('btn');
+		remove.innerHTML = 'удалить';
+		remove.addEventListener('click', function() {
+			list.removeChild(this.parentElement);
+		});
+		list.querySelector('li').appendChild(remove); // найдёт только первый li
+
+		let mark = d.createElement('span');
+		//mark.classList.add('mark');
+		mark.classList.add('btn');
+		mark.innerHTML = 'сделано';
+		mark.addEventListener('click', function() {
+			this.parentElement.querySelector('span').classList.toggle('done');
+		});
+		list.querySelector('li').appendChild(mark); // найдёт только первый li
+
+		input.value = '';
+	}
+});
+		</code>
+	</div>
+	
+	<script src="testhighlighter.js"></script>
+
+	<script>// Подсветка кода
+		(function() {
+			let highlighter = new Highlighter();
+			let elems = document.querySelectorAll('code[data-module="highlight"]');
+
+			if (elems) {
+				for (let elem of elems) {
+					elem.innerHTML = highlighter.handle(elem.innerHTML, elem.dataset.lang);
+				}
+			}
+		}());
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,33 @@
+<p>Потяните за край панели, чтобы изменить ее ширину:</p>
+<div style="background: orange; width: 60px; height: 20px">
+</div>
+<script>
+  var lastX; // Отслеживает последнюю позицию X мыши
+  var rect = document.querySelector("div");
+  //rect.addEventListener("mousedown", function(event) {
+    //if (event.which == 1) {
+      //lastX = event.pageX;
+      //addEventListener("mousemove", moved);
+      //event.preventDefault(); // Предотвращает выделение
+    //}
+  //});
+
+  //function buttonPressed(event) {
+    if (event.buttons == null)
+      return event.which != 0;
+    else
+      return event.buttons != 0;
+  }
+  function moved(event) {
+//    if (!buttonPressed(event)) {
+//      removeEventListener("mousemove", moved);
+//    } else {
+      var dist = event.pageX - lastX;
+      var newWidth = Math.max(10, rect.offsetWidth + dist);
+      rect.style.width = newWidth + "px";
+      lastX = event.pageX;
+    }
+  }
+	
+	// Мы должны прекратить изменение размера панели, когда пользователь отпускает клавишу мыши. К сожалению, не все браузеры устанавливают для событий «mousemove» свойство which. Существует стандартное свойство buttons, которое предоставляет аналогичную информацию, но оно также поддерживается не во всех браузерах. К счастью, все основные браузеры поддерживают что-то одно: либо buttons, либо which. Функция buttonPressed в приведенном выше примере сначала пытается использовать свойство buttons, и, если оно не доступно, переходит к which.
+</script>

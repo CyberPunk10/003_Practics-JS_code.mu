@@ -1,0 +1,1383 @@
+/*-------------------- Общие настройки --------------------*/
+html {
+	font-size: 10px; /* Теперь 1rem = 10px */
+}
+body {
+	//overflow-y: scroll; /* Страница перестает "прыгать" при появлении полосы прокрутки */
+	margin: 0;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1.4em;
+	color: var(--color-font-content);
+	width: 100vw;
+	height: 100vh;
+}
+a {
+	text-decoration: none;
+}
+h3 {
+	transition: font-size linear .3s;
+}
+input {
+	outline: none; /* убирает обводку при клике */
+}
+:root {
+	--color-blue: #4facfe;
+	--color-late-bg: #f9f9f9;
+	--color-border-gray: #ddd;
+	--color-font-content: #222;
+	
+}
+
+/* ---- ScrollBar ---- */
+/* за основу взято отсюда: https://habr.com/ru/company/ruvds/blog/468405/ */
+
+/* Variables */
+:root {
+  --scrollbar-size: 8px;
+  --scrollbar-minlength: 15px; /* Minimum length of scrollbar thumb (width of horizontal, height of vertical) */
+  --scrollbar-ff-width: thin; /* FF-only accepts auto, thin, none */
+  --scrollbar-track-color: transparent;
+  --scrollbar-color: #dfdfdf;
+  --scrollbar-color-hover: #d7d7d7;
+  --scrollbar-color-active: #d0d0d0;
+}
+
+/* Use .layout-scrollbar-obtrusive to only use overflow if scrollbars don’t overlay */
+.scrollbar-test,
+.layout-cell {
+  overscroll-behavior: contain;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  scrollbar-width: var(--scrollbar-ff-width);
+	scroll-behavior: smooth; /* плавная прокрутка по якорным ссылкам */
+}
+
+/* This class controls what elements have the new fancy scrollbar CSS */
+.layout-scrollbar {
+  scrollbar-color: var(--scrollbar-color) var(--scrollbar-track-color);
+}
+/* Only apply height/width to ::-webkit-scrollbar if is obtrusive */
+.layout-scrollbar-obtrusive .layout-scrollbar::-webkit-scrollbar {
+  height: var(--scrollbar-size);
+  width: var(--scrollbar-size);
+}
+.layout-scrollbar::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track-color);
+	border-left: 1px solid #e8e8e8;
+}
+.layout-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  //border-radius: 8px;
+}
+.layout-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-color-hover);
+}
+.layout-scrollbar::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-color-active);
+}
+.scrollbar-test::-webkit-scrollbar-thumb:vertical,
+.layout-scrollbar::-webkit-scrollbar-thumb:vertical {
+  min-height: var(--scrollbar-minlength);
+}
+.scrollbar-test::-webkit-scrollbar-thumb:horizontal,
+.layout-scrollbar::-webkit-scrollbar-thumb:horizontal {
+  min-width: var(--scrollbar-minlength);
+}
+/*---- //ScrollBar ----*/
+
+/* ---- containers ---- */
+:root {
+  --cLeft-size-width-min: 15rem; 				/* .cLeft-xs */
+  --cLeft-size-width-max: 100vw;
+  --cLeft-size-width: 18.5vw;
+  --cLeft-size-width-md: 44.5rem;				/* .cLeft-md */
+  --cLeft-size-width-sm: 28.5rem;				/* .cLeft-sm */
+	
+	--cRight-size-width-min: 32rem; 			/* small == min */
+  --cRight-size-width-max: 100vw;
+  --cRight-size-width: 47.5rem;
+  --cRight-size-width-md: 44.5rem;
+}
+
+
+#cLeft, #cCenter, #cRight {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	transition: all linear .3s;
+}
+
+
+#cLeft {
+	left: 0;
+	min-width: var(--cLeft-size-width-min);
+	max-width: var(--cLeft-size-width-max);
+	width: var(--cLeft-size-width);
+	z-index: 1;
+	background-color: var(--color-late-bg);
+}
+/* только width */
+#cLeft.cLeft-sm {
+	width: var(--cLeft-size-width-sm);
+}
+#cLeft.cLeft-md {
+	width: var(--cLeft-size-width-md);
+}
+/* только left + border + box-shadow */
+.cLeft-hide {
+	border-right: 1px solid #c4c4c4; 
+}
+#cLeft.cLeft-hide {
+	left: calc(-1 * var(--cLeft-size-width)); 
+}
+#cLeft.cLeft-sm.cLeft-hide {
+	left: calc(-1 * var(--cLeft-size-width-sm)); 
+}
+#cLeft.cLeft-md.cLeft-hide {
+	left: calc(-1 * var(--cLeft-size-width-md)); 
+}
+#cLeft.cLeft-hide:hover,
+#cLeft.cLeft-sm.cLeft-hide:hover,
+#cLeft.cLeft-md.cLeft-hide:hover {
+	left: 0rem;
+	box-shadow: 0 .5rem 5rem rgba(0,0,0,.3);
+}
+
+/* левый край (left) */
+#cCenter.cLeft-md.cLeft-hide,
+#cCenter.cLeft-sm.cLeft-hide,
+#cCenter.cLeft-hide {
+	left: 0;
+}	
+#cCenter.cLeft-md { 
+	left: var(--cLeft-size-width-md);
+}
+#cCenter.cLeft-sm { 
+	left: var(--cLeft-size-width-sm);
+}
+
+#cCenter {
+	left: var(--cLeft-size-width);
+	right: var(--cRight-size-width);
+	box-sizing: border-box;
+	border-right: 1px solid var(--color-border-gray);		
+	border-left: 1px solid var(--color-border-gray);
+
+	/* сетка */
+	background: repeating-linear-gradient(to bottom, transparent, transparent 10px, #f0f0f0 10px, #f0f0f0 11px), repeating-linear-gradient(to right, transparent, transparent 10px, #f0f0f0 10px, #f0f0f0 11px);
+  //background-clip: padding-box; 
+  background-color: #fbfbfb;
+}
+
+/* правый край (right) */
+#cCenter.cRight-sm { 
+	right: var(--cRight-size-width-min);
+}
+#cCenter.cRight-md { 
+	right: var(--cRight-size-width-md);
+}
+#cCenter.cRight-hide,
+#cCenter.cRight-sm.cRight-hide,
+#cCenter.cRight-md.cRight-hide {
+	right: 0;
+}	
+
+#cRight {
+	right: 0;
+	min-width: var(--cRight-size-width-min);
+	max-width: var(--cRight-size-width-max);
+	width: var(--cRight-size-width);
+	z-index: 1;
+	background-color: var(--color-late-bg);
+}
+/* только width */
+#cRight.cRight-sm { 
+	width: var(--cRight-size-width-min);
+}
+#cRight.cRight-md { 
+	width: var(--cRight-size-width-md);
+}
+/* только right + border + box-shadow */
+.cRight-hide {  
+	border-left: 1px solid #c4c4c4;
+}
+#cRight.cRight-hide {  
+	right: calc(-1 * var(--cRight-size-width));
+}
+#cRight.cRight-sm.cRight-hide { 
+	right: calc(-1 * var(--cRight-size-width-min));
+}
+#cRight.cRight-md.cRight-hide { 
+	right: calc(-1 * var(--cRight-size-width-md));
+}
+#cRight.cRight-hide:hover,
+#cRight.cRight-sm.cRight-hide:hover,
+#cRight.cRight-md.cRight-hide:hover {
+	right: 0;
+	box-shadow: 0 .5rem 5rem rgba(0,0,0,.3);
+}
+
+
+
+/* ---- resize cLeft & cRight ---- */
+.resize {
+	cursor: e-resize;
+	z-index: 5;
+	position: absolute;
+	top: 6rem;
+	top: 0;
+	bottom: 0;
+	width: 2px;
+	background-color: transparent;
+}
+#resize-left {
+	right: -3px;
+	border-left: 1px solid #ccc;
+}
+#resize-left:hover {
+	right: -3px;
+	border-left: 1px solid #a8a8a8;
+}
+#resize-left.onmousedown {
+	right: -3px;
+	border-left: 1px solid #a8a8a8;
+}
+#resize-right {
+	left: -1px;
+	border-left: 1px solid #ccc;
+}
+#resize-right:hover {
+	border-left: 1px solid #a8a8a8;
+}
+#resize-right.onmousedown {
+	border-left: 1px solid #a8a8a8;
+}
+/* прячем resize, когда боковая панель скрыта */
+#cLeft.cLeft-hide #resize-left,
+#cRight.cRight-hide #resize-right {
+	display: none;
+}
+/* ---- //resize cLeft & cRight ---- */
+
+
+/* ---- headers ---- */
+#header-left, #header-center, #header-right {
+	height: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	box-sizing: border-box;
+	border-bottom: 1px solid #ccc;
+	background-color: var(--color-late-bg);
+}
+#header-center {
+	/* для author */
+	position: relative;
+}
+p.info {
+  text-align: center;
+	margin: 0;
+	padding: 0 1rem;
+	word-spacing: .2rem;
+	user-select: none; /* способ сделать текст невыделяемым */
+}
+p.info a {
+	color: var(--color-blue);
+}
+#header-center p.info {
+	margin-left: 13rem;
+	margin-right: 13rem;
+	z-index: 1;
+}
+/* ---- //headers ---- */
+
+
+/* ----- кнопки ----- */
+
+/* Кнопки на headers общие settings */
+.btn-icon-header {
+	cursor: pointer;
+	position: absolute;
+	user-select: none; /* способ сделать текст невыделяемым */
+	height: 4rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	display: flex;
+	align-items: center;
+	transition: all linear .15s
+}
+
+/* Кнопки в задачах (в нсновном, но не только) */
+.btn {
+	cursor: pointer;
+	background-color: #efefef;
+	border: 1px solid var(--color-border-gray);
+	font-size: 14px;
+	color: #9a96a2;
+	user-select: none; /* способ сделать текст невыделяемым */
+	padding: 4px 10px;
+	outline: none; /* убирает обводку при клике */
+	transition: all ease-out .2s;
+}
+.btn:hover {
+	color: #fff;
+	background-color: #3eadff;
+	border-color: #3eadff;
+	box-shadow: 1px 1px 3px rgba(10,10,10,.2);
+}
+
+/* Схожие кнопки на header-left & header-right*/
+#close-cLeft, #close-cRight {
+	fill:none;
+	stroke:#aaa;
+	stroke-linecap:round;
+	stroke-linejoin:round;
+	stroke-width:2px;
+	display: flex;
+}
+#close-cLeft:hover, #close-cRight:hover {
+	stroke:#666;
+}
+
+/* position */
+#toggle-width-cLeft, #close-cRight {
+	left: 0;
+}
+#toggle-width-cRight, #close-cLeft {
+	right: 0;
+}
+#collapse-expand-tasks {
+	right: 3.5rem;
+}
+
+/* transition + fill/stroke */
+#expand-tasks, #collapse-tasks,
+#cRight-md, #cRight-sm,
+#cLeft-md,  #cLeft-sm,
+#open-cRight-svg {
+	fill: #777;
+	transition: all ease-out .15s;
+}
+#open-cLeft-svg {
+	stroke: #777;
+	transition: all ease-out .15s;
+}
+#expand-tasks:hover, #collapse-tasks:hover,
+#cRight-md:hover, #cRight-sm:hover,
+#cLeft-md:hover, #cLeft-sm:hover, 
+#open-cRight-svg:hover{
+	fill: #444;
+}
+#open-cLeft-svg:hover {
+	stroke: #444;
+}
+
+/* display: none */
+#expand-tasks, 
+#cLeft-sm, #cRight-md,
+#open-cLeft-wrap, #open-cRight-wrap,
+#open-cLeft-svg, #open-cRight-svg {
+	display: none;
+}
+
+/* прячем кнопки закрытия боковых панелей (для hover) */
+#cLeft.cLeft-hide #close-cLeft,
+#cRight.cRight-hide #close-cRight {
+	display: none;
+}
+
+/* показываем кнопки открытия боковой панели, когда она скрыта */
+#cCenter.cLeft-hide #open-cLeft-wrap, 
+#cCenter.cRight-hide #open-cRight-wrap {
+	display: flex;
+}
+
+/* меняем кнопки стандартных ширин в зависимости от навешенного класса (cRight) */
+#cRight.cRight-sm #cRight-sm, #cRight.cRight-md #cRight-md {
+	display: none;
+}
+#cRight.cRight-md #cRight-sm, #cRight.cRight-sm #cRight-md {
+	display: flex;
+}
+/* меняем кнопки стандартных ширин в зависимости от навешенного класса (cLeft) */
+#cLeft.cLeft-sm #cLeft-sm, #cLeft.cLeft-md #cLeft-md {
+	display: none;
+}
+#cLeft.cLeft-md #cLeft-sm, #cLeft.cLeft-sm #cLeft-md {
+	display: flex;
+}
+
+/* Кнопки на header-center */
+#open-cLeft-wrap, #open-cRight-wrap {
+	height: 4rem;
+	align-items: center;
+	animation: fadeIn ease-in .5s;  /* aнимация задана в общих настройках */
+}
+#open-cLeft-span, #open-cRight-span {
+	justify-content: center;
+	height: 2rem;
+	width: 10rem;
+	margin-left: .5rem;
+	margin-right: .5rem;
+}
+#open-cLeft-svg, #open-cRight-svg {
+	animation: fadeIn ease-in .5s;  /* aнимация задана в общих настройках */
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+/* position */
+#open-cLeft-wrap, #open-cLeft-span, #open-cLeft-svg {
+	left: 0;
+}
+#open-cRight-wrap, #open-cRight-span, #open-cRight-svg {
+	right: 0;
+}
+
+/* ----- //кнопки ----- */
+
+
+/* ----- #left-navigation, #main-center, #main-right ----- */
+#left-navigation, #main-center, #main-right {
+	overflow-y: auto;
+	height: calc(100vh - 4rem); /* отнимаем высоту header*/
+	box-sizing: border-box;
+}
+
+/* left-navigation */
+#left-navigation {
+	font-size: 10px; /* базовый размер для динамического измененения параметров дочерних элементов */
+}
+#left-navigation ul {
+	margin: 0;
+	padding: .5rem 2% .5rem 6%;	
+	user-select: none; /* способ сделать текст невыделяемым */
+	transition: padding .3s linear;
+}
+#left-navigation li {
+	list-style: none;
+}
+#left-navigation li a {
+	display: block;
+	line-height: 1;
+	margin-bottom: .5rem;
+	padding: .5rem 2.5%;
+	border-radius: 3px;
+	font-size: 1.4em;
+	color: #666;	
+	transition: font-size linear .3s , line-height linear .3s, margin-bottom linear .3s, padding linear .3s, background linear .3s, color linear .2s;
+}
+#left-navigation li a:hover {
+	text-decoration:underline;
+}
+#left-navigation li a.active {
+	color: #1b94ff;
+}
+#left-navigation .nav-title {
+	font-weight: bold;
+	font-size: 1.5em;
+	line-height: 1.4;
+	margin-top: 1em;
+	color: #333;
+	//transition: margin linear .3s, background linear .3s, color linear .3s;
+	transition: all linear .3s;
+}
+#left-navigation .nav-title:hover {
+	text-decoration:none;
+}
+#left-navigation .nav-title.active {
+	color: #333;
+}
+
+#cLeft.cLeft-xs #left-navigation ul{
+	padding: 0;	
+}
+#cLeft.cLeft-xs #left-navigation li a{
+	margin-bottom: 0;
+	padding: .75rem 4% .75rem 5%;
+	border-radius: 0;
+	font-size: 1.3em;
+}
+#cLeft.cLeft-xs #left-navigation .nav-title {
+	margin: 0;
+	padding: .75rem 4% .75rem 5%;
+	text-align: center;
+}
+
+
+/* ---- cCenter ---- */
+
+/* main-center */
+#code-guide {
+	transition: all linear .3s;
+}
+#code-guide h3 {
+	text-align: center;
+	-webkit-animation: fadeIn linear 0.3s; /* aнимация задана в общих настройках */
+  animation: fadeIn linear 0.3s; /* aнимация задана в общих настройках */
+}
+
+/* cCenter-task */
+.cCenter-task {
+	display: none;
+}
+.cCenter-task.active {
+	display: table;
+	margin: 0 auto;
+	-webkit-animation: fadeIn linear 0.3s; /* aнимация задана в общих настройках */
+  animation: fadeIn linear 0.3s; /* aнимация задана в общих настройках */
+}
+.cCenter-task h3 {
+	margin: 0;
+	padding: 1.7em 1em;
+	text-align: center;
+}
+.cCenter-task p {
+	max-width: 90rem;
+	padding: 2rem 3rem 4rem;
+	margin: 1rem;
+	background-color: #fff;
+	border: 1px dashed #bdbdcb;
+	font-size: 1.2em;
+}
+.cCenter-task p span {
+	display: inline-block;
+	width: 100%;
+	//text-align: center;
+	font-weight: bold;
+	padding-bottom: 1rem;
+}
+
+/* highlight */
+.block > code.highlight {
+	//border-left: 1px dashed #f5f5f5;
+  //background: transparent;
+  margin: 0;
+  padding: 15px 15px 15px 44px;
+  font-size: 1.15em;
+  line-height: 1.2;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  white-space: pre;
+  display: block;
+  color: #000000;
+  position: relative;
+  -webkit-tab-size: 2;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  counter-reset: line-number;
+	background-color: rgba(251, 251, 251, 0.7);
+	border: 1px solid #ccc;
+	margin-bottom: 2rem;
+}
+.block > code.highlight .line-number {
+  font-family: 'Source Sans Pro', sans-serif;		 	/* "Times New Roman" */
+  font-size: 1em; 																/* 17px */
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #888888;
+  position: absolute;
+  text-align: center;
+  width: 33px;
+  right: calc(100% - 33px);
+  border-right: 1px solid #c3c3c3;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  counter-increment: line-number;
+  pointer-events: none;
+}
+.block > code.highlight .line-number::after {
+  content: counter(line-number);
+}
+
+/* ---- /cCenter ---- */
+
+
+/* ---- cRight ---- */
+
+
+/* main-right */
+
+/* result-code */
+#result-code {
+	padding: 1rem 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	transition: font-size linear .3s;
+}
+#result-code .exercise {
+	max-width: 43.5rem;	
+	width: 100%;
+	padding: 0;
+	margin: 1rem;	/* не уменьшать боковые, svg.collapse-expand при повороте необходимо место! */
+	transition: margin linear .3s, width linear .3s, padding linear .3s;
+}
+#result-code .body-exs {
+	padding: 1.5rem;
+	border-left: 1px dashed #8ca5cf;
+	border-right: 1px dashed #8ca5cf;
+	border-bottom: 1px dashed #8ca5cf;
+	background-color: #fff;
+	border-radius: 0	0 .6rem .6rem;
+	box-shadow: 0px 1px .2rem rgba(0,0,0,.1);
+	 -webkit-animation: fadeInDown linear .2s; /* aнимация задана в общих настройках */
+  animation: fadeInDown linear .2s; /* aнимация задана в общих настройках */
+	//height: calc(100% - 7.3rem); /* Решение не самое удачное - заголовок может разъезжаться на 2 строки в результате чего будет менятья второе значение в формуле */
+	-o-transition: all ease .3s, font-size ease 0s;
+	-moz-transition: all ease .3s, font-size ease 0s;
+	-webkit-transition: all ease .3s, font-size ease 0s;
+	//transition: all ease .3s, font-size ease 0s;
+}
+
+/* Заголовки */
+#result-code h2.title-h2 {
+	width: 100%;
+	text-align: center;
+	font-size: 1.7rem;
+	user-select: none; /* способ сделать текст невыделяемым */
+	transition: font-size linear 0.3s, width linear 0.3s, line-height linear 0.3s;
+}
+#result-code .wrap-h3 {
+	position: relative;
+	z-index: 2; /* для красивой анимации ухода под заголовок .body-exs и выхода из под него */
+}
+#result-code h3 {
+	cursor: pointer;	
+	user-select: none; /* способ сделать текст невыделяемым */	
+	margin: 0;
+	padding: 1rem 2rem;
+	font-size: 1.6rem;
+	color: #333;
+	background-color: #efefef;
+	border: 1px dashed #8ca5cf;
+	border-radius: .6rem .6rem 0	0;
+	transition: font-size ease .1s, padding ease .3s, background ease .3s;
+}
+#result-code h3:hover {
+	background-color: var(--color-border-gray);
+}
+
+/* кнопки свернуть/развернуть около заголовков (галки) */
+#result-code .collapse-expand {
+	cursor: pointer;
+	position: absolute;
+	height: 100%;
+	top: 0;
+	right: 0rem;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	fill: #aaa;
+	transform: rotate(-180deg);
+	transition: all linear .2s;
+}
+#result-code .collapse-expand:hover {
+	fill: #777;
+}
+
+/* активное состояние */
+#result-code .exercise.active h3 {
+	//background-color: #cbe7ff;
+	//background-color: #b3dbff;
+	background-color: #d2eaff;
+	border-radius: .6rem .6rem 0	0;
+}
+#result-code .exercise.active .body-exs {
+	box-shadow: .3rem .3rem 2rem rgba(0,0,0,.3);
+}
+
+/* свернутое состояние */
+#result-code .exercise.collapse {
+	//overflow: hidden; /* чтобы анимация смотрелась красивее - при уходе наверх не body-exs не выходило за заголовок */
+}
+#result-code .exercise.collapse h3 {
+	border-radius: .6rem;
+}
+#result-code .exercise.collapse .body-exs {
+	//-webkit-animation: fadeOutUp 2s; 					/* не работает */
+  //animation: fadeOutUp 2s;									/* не работает */
+	display: none;
+}
+#result-code .exercise.collapse .collapse-expand {
+	transform: rotate(0deg);
+}
+
+/* минимальная ширина cRight */
+#cRight.cRight-sm {
+	font-size: 1.3rem;
+}
+#cRight.cRight-sm #result-code h2.title-h2 {
+	font-size: 1.6rem;
+}
+#cRight.cRight-sm #result-code h3 {
+	font-size: 1.3rem;
+	padding: 1rem;
+}
+#cRight.cRight-sm #result-code .exercise {
+	margin: .5rem 1rem;
+}
+#cRight.cRight-sm #result-code .body-exs {
+	padding: 1rem .5rem;
+	height: calc(100% - 6.1400rem); /* вычитаем высоту заголовка h3 и высоту паддингов .body-exs */
+}
+
+/* ---- /cRight ---- */
+
+
+/* ---- tooltips ---- */
+
+.tooltip {
+  position: relative;
+}
+.tooltip:before,
+.tooltip:after {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0; 
+  margin-bottom: 15px;
+	transform: translateX(-50%);
+	-webkit-transition: opacity .7s, margin-bottom .7s, visibility .5s ease;
+	-o-transition: opacity .7s, margin-bottom .7s, visibility .5s ease;
+	-moz-transition: opacity .7s, margin-bottom .7s, visibility .5s ease;  left: 50%;
+	transition: opacity .7s, margin-bottom .7s, visibility .5s ease;
+}
+.tooltip:before {
+  bottom: 3rem;
+  padding: 1rem;
+  width: 20rem;
+  color: white;
+  background-color: rgba(0,0,0,.85);
+  content: attr(data-title);
+  border-radius: 5px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.tooltip:after {
+  content: "";
+  border-top: 10px solid rgba(0,0,0,.85);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  bottom: 20px;
+}
+.tooltip:hover:before,
+.tooltip:hover:after {
+  opacity: 1;
+  margin-bottom: 0;
+  visibility: visible;
+}
+
+/* tooltip-down */
+.tooltip-down {
+  position: relative;
+}
+.tooltip-down:before,
+.tooltip-down:after {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0; 
+  margin-top: 15px;
+	transform: translateX(-50%);
+	-webkit-transition: opacity .7s, margin-top .7s, visibility .5s ease;
+	-o-transition: opacity .7s, margin-top .7s, visibility .5s ease;
+	-moz-transition: opacity .7s, margin-top .7s, visibility .5s ease;  left: 50%;
+	transition: opacity .7s, margin-top .7s, visibility .5s ease;
+}
+.tooltip-down:before {
+  top: 3rem;
+  padding: 1rem;
+  width: 20rem;
+  color: white;
+  background-color: rgba(0,0,0,.85);
+  content: attr(data-title);
+  border-radius: 5px;
+  box-sizing: border-box;
+  text-align: center;
+	//margin-left: -10rem;
+
+}
+.tooltip-down:after {
+  content: "";
+  border-bottom: 10px solid rgba(0,0,0,.85);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  top: 20px;
+	//margin-left: -10px;
+}
+.tooltip-down:hover:before,
+.tooltip-down:hover:after {
+  opacity: 1;
+  margin-top: 0;
+  visibility: visible;
+}
+
+/* ---- /tooltips ---- */
+
+/* popup */
+
+/* общие настройки */
+#bg-popup {
+	position: fixed;
+	opacity: 0;
+	visibility: hidden;
+	width: 1px;
+	height: 1px;
+	transition: all ease-in-out .1s;
+	z-index: 1;
+}
+#bg-popup.active {
+	opacity: 1;
+	visibility: visible;
+	top: 0; bottom: 0; left: 0; right: 0;
+	width: 100vw;
+	height: 100vh;
+}
+.gradient-animated {
+	background-image: linear-gradient( 111.7deg,  rgba(251,198,6,1) 2.4%, rgba(224,82,95,1) 28.3%, rgba(194,78,154,1) 46.2%, rgba(32,173,190,1) 79.4%, rgba(22,158,95,1) 100.2% );
+	background-size: 1000vw 1000vw;
+	-webkit-animation: gradient 40s infinite linear;
+	animation: gradient 40s infinite linear;
+}
+.opacity-cntrs {
+	opacity: 0;
+	visibility: hidden;
+	transition: all linear 2s;
+}
+#popup-author, #popup-cube {
+	display: none;
+	position: relative;
+	transition: all ease-in-out .3s;
+	//background-color: rgba(255,0,0,.3);
+}
+#popup-cube.active {
+	display: block;
+}
+
+/* author */
+#wrap-btn-author, #wrap-btn-cube {
+	position: absolute;
+	top: 4rem; 
+	width: .5rem;
+	height: .5rem;
+	transform: translate(-50%, -50%);
+	background-color: var(--color-late-bg);
+	border-radius: 50%;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	transition: all linear .5s;
+}
+#wrap-btn-author {
+	left: 40vw; 
+}
+#wrap-btn-cube {
+	left: 50vw; 
+}
+#wrap-btn-author:hover, #wrap-btn-cube:hover {
+	width: 3.5rem;
+	height: 3.5rem;
+	bottom: -1.75rem;
+}
+#wrap-btn-author:hover .inset-help-box:after,
+#wrap-btn-cube:hover .inset-help-box:after {
+	bottom: -1.75rem;
+	left: 50%;
+	width: 3.6rem;
+	height: 1.8rem;
+}
+#wrap-btn-author:hover #btn-author,
+#wrap-btn-cube:hover #btn-cube {
+	opacity: 1;
+	visibility: visible;
+	height: 21px;
+	width: 21px;
+}
+
+.inset-help-box {
+	position: relative;
+}
+.inset-help-box:after {
+	content: '';
+	position: absolute;
+	top: -0.125rem;
+	left: 50%;
+	width: 1.2rem;
+	height: .3rem;
+	transform: translate(-50%, -.1rem);
+	background-color: var(--color-late-bg);
+	//background-color: #eee;
+	box-sizing: border-box;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%; 
+	transition: all linear .5s;
+}
+
+#btn-author, #btn-cube {
+	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	right: 50%;
+	width: 2px;
+	height: 2px;
+	fill: #ccc;
+	transform: translate(50%, -50%);
+	transition: all ease-in-out .5s;
+}
+#btn-author .eyes, #btn-cube .eyes {
+	fill: #fff;
+}
+
+#popup-author {
+	display: block;
+}
+.wrap-flex {
+	position: absolute;
+	top: -50vh;
+	left: 50vw;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: all linear .3s;	
+}
+#popup-author.active .wrap-flex, #popup-cube.active .wrap-flex {
+	top: 50vh;
+	
+}
+#author-white {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, -50%);
+	width: 50rem;
+	height: 30rem;
+	box-shadow: 1rem 1rem 11rem rgba(0,0,0,.2);
+	fill: #fff;
+	transition: all linear .3s;	
+}
+.wrap-flex>div {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 50rem;
+	height: 30rem;
+	z-index: 0;
+	color: #b7b7b7;
+	text-align: center;
+	line-height: 2;
+	word-spacing: .2rem;
+	transition: all ease-in-out .3s;
+}
+.wrap-flex>div p:first-child {
+	font-size: 1.6rem;
+	padding: .5rem 2rem;	
+}
+.wrap-flex>div a {
+
+	display: inline-block;
+	color: #4facfe;
+	text-align: center;
+	padding: 2rem 2rem;	
+	width: 80px;
+	transition: opacity linear .3s, color linear .15s;
+}
+.wrap-flex>div a:hover {
+	color: #1b94ff;
+}
+#popup-author .popup-close {
+	position: absolute;
+	top: 11px;
+	right: 11px;
+	//stroke: red;
+	//z-index:25;
+}
+#popup-cube .popup-close {
+	position: absolute;
+	top: 11px;
+	right: 11px;
+	stroke: #fff;
+	//z-index:25;
+}
+
+
+/* куб */
+#wrapper-cube {
+	position: absolute;
+	left: 50%; 
+	top: 40%;
+	transform: translate(-50%, -50%);
+	width: 50rem;
+	height: 30rem;
+	-webkit-perspective: 900px;
+	-moz-perspective: 900px;
+	perspective: 900px;
+	//background-color: rgba(255,0,255,.3);
+}
+#cube {
+	position: relative;
+	height: 30rem;
+	width: 50rem;
+	color: #b7b7b7;
+	text-align: center;
+	line-height: 2;
+	word-spacing: .2rem;
+	
+	-webkit-transform-origin: 50% 50% -15rem; 		/* чтобы можно было вращать куб */
+	-moz-transform-origin: 50% 50% -15rem; 				/* чтобы можно было вращать куб */
+	-o-transform-origin: 50% 50% -15rem; 					/* чтобы можно было вращать куб */
+	transform-origin: 50% 50% -15rem; 						/* чтобы можно было вращать куб */
+	
+	//-webkit-backface-visibility: hidden;					/* прячет задние стороны (куб становится не прозрачным) */
+	//-moz-backface-visibility: hidden;
+	//backface-visibility: hidden;
+	
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	
+	//-webkit-transform: rotate3d(1,1,0,-15deg);
+	//-moz-transform: rotate3d(1,1,0,-15deg);
+	
+	transition: background linear .3s;
+	
+	-webkit-animation: rotateCube linear 50s;
+	animation: rotateCube linear 50s;
+	animation-iteration-count: infinite;
+}
+#cube:hover {
+	//background-color: rgba(255,0,0,.3);
+}
+
+#cube:first-child {
+	font-size: 1.6rem;
+	padding: .5rem 2rem;	
+}
+#cube a {
+	display: inline-block;
+	color: #4facfe;
+	text-align: center;
+	padding: 2rem 2rem;	
+	width: 80px;
+	transition: opacity linear .3s, color linear .15s;
+}
+#cube a:hover {
+	color: #1b94ff;
+}
+.side {
+	position: absolute;
+	height: 30rem;
+	width: 50rem;
+	background: rgba(0,0,0,.3);
+	background: -webkit-radial-gradient(rgba(255,255,255,.8),rgba(255,255,255,.9));
+	border: 1px solid #eee;
+	border-radius: 1px;
+	font-size: 5em;
+	line-height: 30rem;
+	text-align: center;
+	//text-shadow: 0 1px 3px rgba(0,0,0,.1);
+	box-shadow: inset .2rem .2rem 5rem rgba(0,0,0,.05), .1rem .1rem 1rem rgba(0,0,0,.05);
+	-webkit-transform-origin: 50% 50% -15rem;		 /* чтобы развернуть все грани относительно центра куба */
+	-moz-transform-origin: 50% 50% -15rem;		 /* чтобы развернуть все грани относительно центра куба */
+}
+
+#front {
+	transform: translateZ(0px);
+	font-size: 1.6rem;
+	line-height: 2;
+}
+#right {
+	transform: rotateY(90deg) translateZ(20rem);
+	width: 30rem;
+}
+#left {
+	transform: rotateY(-90deg) translateZ(0);
+	width: 30rem;
+}
+#up {
+	transform: rotateX(90deg);
+}
+#down {
+	transform: rotateX(-90deg);
+	box-shadow: 1rem 1rem 11rem rgba(0,0,0,.1);
+}
+#back {
+	transform: rotateY(180deg);
+}
+
+
+/* /popup */
+
+
+/* ----- Анимация ----- */
+@keyframes opacity {
+	from {opacity: 0;}
+		10% {opacity: 1;}
+		60% {opacity: 1;}
+	to {opacity: 0;}
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes gradient {
+	0% {
+		background-position: 0 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0 50%;
+	}
+}
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3.5rem, 0);
+    transform: translate3d(0, -3.5rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+} /* special for tasks */	
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 50vh, 0);
+    transform: translate3d(0, 50vh, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3.5rem, 0);
+    transform: translate3d(0, -3.5rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+} /* special for tasks */	
+
+@-webkit-keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+.fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+} /* навешивать в момент события закрытия (или переопределять анимацию из-за специфичности) */
+
+@keyframes rotateCube {
+	from {
+		-webkit-transform: rotate3d(0,0,0,0);
+		transform: rotate3d(0,0,0,0);
+	}
+	to {
+		-webkit-transform: rotate3d(0,1,0,360deg);
+		transform: rotate3d(0,1,0,360deg);
+	}
+}
+
+
+
+
+@media (max-width: 1599px) {
+	#cLeft {
+		width: var(--cLeft-size-width-sm);
+	}	
+	#cLeft.cLeft-hide {
+		left: calc(-1 * var(--cLeft-size-width-sm));
+	}
+	
+	#cCenter {
+		left: var(--cLeft-size-width-sm);
+		right: 26vw;
+	}
+
+	#cRight {
+		width: 26vw;
+	}
+	#cRight.cRight-hide {
+		right: -26vw; 
+	}
+
+	#result-code .body-exs {
+		padding-right: 1rem;
+		padding-left: 1rem;
+		height: calc(100% - 7.1400rem); /* вычитаем высоту заголовка h3 и высоту паддингов .body-exs */
+	}
+	#result-code h3 {
+		font-size: 1.45rem;
+		padding: 1rem;
+	}
+}
+
+@media (max-width: 1299px) {
+	#cLeft {
+		width: 26vw;
+	}
+	#cLeft.cLeft-hide {
+		left: -26vw; 
+	}
+	
+	#cCenter { 
+		right: 0;
+		left: 26vw;
+	}		
+	
+	#cRight {
+		right: calc(-1 * var(--cRight-size-width-min)); 
+	}
+	#cRight.cRight-sm,
+	#cRight.cRight-md {
+		right: 0; 
+	}
+		
+	.block > code.highlight {
+		margin-bottom: 0;
+	}
+	
+}
+
+@media (max-width: 991px) {
+	#cLeft.cLeft-sm,
+	#cLeft.cLeft-md {
+		left: 0; 
+	}
+	#cLeft,
+	#cLeft.cLeft-hide {
+		left: calc(-1 * var(--cLeft-size-width-sm)); 
+	}	
+
+	#cCenter {
+		left: 0;
+	}	
+	
+	/* новые стили для кнопок открытия */
+	#open-cLeft-span, #open-cRight-span {
+		width: 9.5rem;
+		padding-left: .5rem;
+		padding-right: .5rem;
+	}
+
+	
+}
+
+@media (max-width: 699px) {
+	/* main-center */
+	#code-guide {
+		font-size: 1.2rem;
+	}
+	.header-center-span {
+		display: none;
+	}
+} 
+
+@media (max-width: 479px) {
+	/* растягиваем боковые панели на всю ширину */
+	#cLeft.cLeft-md, #cLeft.cLeft-sm,
+	#cRight.cRight-md, #cRight.cRight-sm {
+		width: 100vw;
+		
+	}
+	/* убираем hover-выезжание боковых панелей */
+	#cLeft.cLeft-md.cLeft-hide,
+	#cLeft.cLeft-sm.cLeft-hide {
+		border: none;
+		left: -100vw;
+	}
+	#cRight.cRight-md.cRight-hide,
+	#cRight.cRight-sm.cRight-hide {
+		border: none;
+		right: -100vw;
+	}
+	/* убираем отступы в 1px */
+	#cCenter.cLeft-md, #cCenter.cLeft-md.cLeft-hide,
+	#cCenter.cLeft-sm, #cCenter.cLeft-sm.cLeft-hide {
+		left: 0;
+	}
+	#cCenter.cRight-md, #cCenter.cRight-md.cRight-hide,
+	#cCenter.cRight-sm, #cCenter.cRight-sm.cRight-hide {
+		right: 0;
+	}
+	
+	/* заменяем кнопки с текстом на svg */
+	#open-cLeft-span, #open-cRight-span {
+		display: none;
+	}
+	#open-cLeft-svg, #open-cRight-svg {
+		display: flex;
+	}
+	#header-center p.info {
+		margin-left: 3rem;
+		margin-right: 3rem;
+		padding: 0 .5rem;
+	}
+	/* прячем кнопки изменения стандартных ширин */
+	#toggle-width-cLeft, #toggle-width-cRight {
+		display: none;
+	}
+	/* смещаем кнопку закрытия влево */
+	#close-cRight {
+		right: 0;
+		left: auto;
+	}
+	
+	/* ставим кнопку сворачивания/разворачивания на место кнопки изменения стандартных ширин */
+	#collapse-expand-tasks {
+		left: 0;
+	}
+	
+	/* main-center */
+	#code-guide {
+		font-size: 1rem;
+	}
+	.block > code.highlight .line-number {
+		width: 25px;
+		right: calc(100% - 25px);
+	}
+}
+
+
+
+
+
+
+
+
+
+

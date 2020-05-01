@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Практика JS</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cousine&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="highlighter/highlighter.css">
+  <link rel="stylesheet" href="css/tasks.css">
+</head>
+
+<body>
+
+  <div id="cLeft">
+    <div id="header-left">
+      <div id="toggle-width-cLeft" class="btn-icon-header">
+
+        <svg id="cLeft-sm" width="18" height="18" viewBox="0 0 49 49" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.5 2.28882e-05C0.223858 2.28882e-05 0 0.223881 0 0.500023C0 0.776165 0.223858 1.00002 0.5 1.00002V2.28882e-05ZM48.5 1.00002C48.7761 1.00002 49 0.776165 49 0.500023C49 0.223881 48.7761 2.28882e-05 48.5 2.28882e-05V1.00002ZM0.5 8.20002C0.223858 8.20002 2.19458e-08 8.42388 0 8.70002C-2.19458e-08 8.97617 0.223858 9.20002 0.5 9.20002L0.5 8.20002ZM48.5 9.20003C48.7761 9.20003 49 8.97617 49 8.70003C49 8.42388 48.7761 8.20003 48.5 8.20003L48.5 9.20003ZM0.497277 23.4667C0.221138 23.4682 -0.0014966 23.6933 7.41623e-06 23.9694C0.00151143 24.2456 0.226585 24.4682 0.502723 24.4667L0.497277 23.4667ZM20.6135 23.8571L20.9747 24.2029L21.3057 23.8571L20.9747 23.5114L20.6135 23.8571ZM28.0361 24.1429L27.6749 23.7971L27.3438 24.1429L27.6749 24.4887L28.0361 24.1429ZM48.5043 24.4667C48.7804 24.4643 49.0024 24.2385 49 23.9624C48.9976 23.6863 48.7718 23.4643 48.4957 23.4667L48.5043 24.4667ZM0.5 39.9C0.223858 39.9 0 40.1239 0 40.4C0 40.6762 0.223858 40.9 0.5 40.9V39.9ZM48.5 40.9C48.7761 40.9 49 40.6762 49 40.4C49 40.1239 48.7761 39.9 48.5 39.9V40.9ZM0.5 48C0.223858 48 0 48.2239 0 48.5C0 48.7762 0.223858 49 0.5 49V48ZM48.5 49C48.7761 49 49 48.7762 49 48.5C49 48.2239 48.7761 48 48.5 48V49ZM35.1977 32.3458C35.3886 32.5453 35.7051 32.5521 35.9046 32.3612C36.1041 32.1702 36.1109 31.8537 35.92 31.6542L35.1977 32.3458ZM35.92 16.6316C36.1109 16.4321 36.1041 16.1156 35.9046 15.9246C35.7051 15.7337 35.3886 15.7405 35.1977 15.94L35.92 16.6316ZM13.4519 15.6542C13.2609 15.4548 12.9444 15.4479 12.745 15.6389C12.5455 15.8298 12.5386 16.1463 12.7296 16.3458L13.4519 15.6542ZM12.7296 31.3685C12.5386 31.5679 12.5455 31.8844 12.745 32.0754C12.9444 32.2664 13.2609 32.2595 13.4519 32.06L12.7296 31.3685ZM0.5 1.00002H48.5V2.28882e-05H0.5V1.00002ZM0.5 9.20002L48.5 9.20003L48.5 8.20003L0.5 8.20002L0.5 9.20002ZM0.502723 24.4667L20.6162 24.3571L20.6108 23.3571L0.497277 23.4667L0.502723 24.4667ZM28.0404 24.6429L48.5043 24.4667L48.4957 23.4667L28.0317 23.6429L28.0404 24.6429ZM0.5 40.9H48.5V39.9H0.5V40.9ZM0.5 49H48.5V48H0.5V49ZM35.92 31.6542L28.3972 23.7971L27.6749 24.4887L35.1977 32.3458L35.92 31.6542ZM28.3972 24.4887L35.92 16.6316L35.1977 15.94L27.6749 23.7971L28.3972 24.4887ZM12.7296 16.3458L20.2524 24.2029L20.9747 23.5114L13.4519 15.6542L12.7296 16.3458ZM20.2524 23.5114L12.7296 31.3685L13.4519 32.06L20.9747 24.2029L20.2524 23.5114Z" />
+        </svg>
+
+        <svg id="cLeft-md" width="18" height="18" viewBox="0 0 49 48" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M0.993141 0.489796C0.993141 0.219289 1.21243 0 1.48294 0H20.0863C20.3568 0 20.5761 0.219289 20.5761 0.489796C20.5761 0.760303 20.3568 0.979592 20.0863 0.979592H1.48294C1.21243 0.979592 0.993141 0.760303 0.993141 0.489796ZM28.4086 0.489796C28.4086 0.219289 28.6279 0 28.8984 0H47.5018C47.7723 0 47.9916 0.219289 47.9916 0.489796C47.9916 0.760303 47.7723 0.979592 47.5018 0.979592H28.8984C28.6279 0.979592 28.4086 0.760303 28.4086 0.489796ZM0.993141 8.84898C0.993141 8.57847 1.21243 8.35918 1.48294 8.35918H20.0863C20.3568 8.35918 20.5761 8.57847 20.5761 8.84898C20.5761 9.11948 20.3568 9.33877 20.0863 9.33877H1.48294C1.21243 9.33877 0.993141 9.11948 0.993141 8.84898ZM28.4086 8.84898C28.4086 8.57847 28.6279 8.35918 28.8984 8.35918H47.5018C47.7723 8.35918 47.9916 8.57847 47.9916 8.84898C47.9916 9.11948 47.7723 9.33877 47.5018 9.33877H28.8984C28.6279 9.33877 28.4086 9.11948 28.4086 8.84898ZM40.6346 15.3161C40.832 15.1311 41.1419 15.1412 41.3269 15.3386L48.5392 23.0353C48.7157 23.2237 48.7157 23.5168 48.5392 23.7052L41.3269 31.4019C41.1419 31.5993 40.832 31.6094 40.6346 31.4244C40.4372 31.2395 40.4271 30.9295 40.6121 30.7321L47.0506 23.8611L2.29055 23.9039L8.73093 30.7769C8.91589 30.9743 8.90582 31.2843 8.70843 31.4693C8.51104 31.6542 8.20108 31.6441 8.01612 31.4468L0.803962 23.7501C0.627439 23.5617 0.627439 23.2687 0.803962 23.0803L8.01612 15.3837C8.20108 15.1863 8.51104 15.1762 8.70843 15.3612C8.90582 15.5461 8.91589 15.8561 8.73093 16.0535L2.29257 22.9243L47.0526 22.8815L40.6121 16.0084C40.4271 15.811 40.4372 15.501 40.6346 15.3161ZM0.993141 39.151C0.993141 38.8805 1.21243 38.6612 1.48294 38.6612H20.0863C20.3568 38.6612 20.5761 38.8805 20.5761 39.151C20.5761 39.4215 20.3568 39.6408 20.0863 39.6408H1.48294C1.21243 39.6408 0.993141 39.4215 0.993141 39.151ZM28.4086 39.151C28.4086 38.8805 28.6279 38.6612 28.8984 38.6612H47.5018C47.7723 38.6612 47.9916 38.8805 47.9916 39.151C47.9916 39.4215 47.7723 39.6408 47.5018 39.6408H28.8984C28.6279 39.6408 28.4086 39.4215 28.4086 39.151ZM0.993141 47.5102C0.993141 47.2397 1.21243 47.0204 1.48294 47.0204H20.0863C20.3568 47.0204 20.5761 47.2397 20.5761 47.5102C20.5761 47.7807 20.3568 48 20.0863 48H1.48294C1.21243 48 0.993141 47.7807 0.993141 47.5102ZM28.4086 47.5102C28.4086 47.2397 28.6279 47.0204 28.8984 47.0204H47.5018C47.7723 47.0204 47.9916 47.2397 47.9916 47.5102C47.9916 47.7807 47.7723 48 47.5018 48H28.8984C28.6279 48 28.4086 47.7807 28.4086 47.5102Z" />
+        </svg>
+
+      </div>
+      <p class="info">Навигация</p>
+      <svg id="close-cLeft" class="btn-icon-header" width="14" height="14" viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg">
+        <line x1="1" x2="47" y1="47" y2="1" />
+        <line x1="1" x2="47" y1="1" y2="47" />
+      </svg>
+    </div>
+
+    <div id="resize-left" class="resize"></div>
+
+    <div id="left-navigation" class="layout-scrollbar layout-cell">
+      <ul>
+        <li><a href="#h2-21-26" class="nav-title">Чеклист на JavaScript</a></li>
+        <li><a href="#exercises-21-26">21-26. Чеклист на JavaScript</a></li>
+        <li><a href="#h2-27-30" class="nav-title">Записная книжка на JavaScript</a></li>
+        <li><a href="#exercises-27-30">27-30. Записная книжка на JavaScript</a></li>
+        <li><a href="#h2-37-43" class="nav-title">Тесты</a></li>
+        <li><a href="#exercise-37">37. Вопросы и ответы в HTML коде</a></li>
+        <li><a href="#exercise-38">38. Ответы в массиве</a></li>
+        <li><a href="#exercise-39">39. Вопросы и ответы в массиве</a></li>
+        <li><a href="#exercise-40">40. Вопросы и ответы в объекте</a></li>
+        <li><a href="#exercise-41">41. Варианты ответов в HTML коде</a></li>
+        <li><a href="#exercise-42">42. Варианты ответов в массиве</a></li>
+        <li><a href="#exercise-43">43. Вопросы и варианты ответов в объекте</a></li>
+        <li><a href="" class="nav-title">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">Хватать мышкой и перемещать код по центру</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+      </ul>
+    </div>
+  </div> <!-- /cLeft -->
+
+  <div id="cCenter">
+    <div id="header-center">
+      <p class="info" id="header-center-name"><a href="http://code.mu/ru/javascript/book/practice/">Практика минипроекты
+          JavaScript </a>Преподаватель:&nbsp;Трепачёв&nbsp;Дмитрий<span
+          class="header-center-span">,&nbsp;автор&nbsp;сайта&nbsp;<a href="http://code.mu/">code.mu</a></span>
+      </p>
+      <div id="open-cLeft-wrap">
+        <span id="open-cLeft-span" class="btn-icon-header btn">Навигация</span>
+        <svg id="open-cLeft-svg" class="btn-icon-header" width="18" height="18" viewBox="0 0 48 41"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M9.5 0.5H47.5M9.5 10.5L47.5 10.5M9.5 30.5L47.5 30.5M9.5 20.5L47.5 20.5M9.5 40.5H47.5M0.5 0.5H4.5M0.5 10.5H4.5M0.5 30.5H4.5M0.5 20.5H4.5M0.5 40.5H4.5"
+            stroke-linecap="round" />
+        </svg>
+      </div>
+      <div id="open-cRight-wrap">
+        <span id="open-cRight-span" class="btn-icon-header btn">Результат кода</span>
+        <svg id="open-cRight-svg" class="btn-icon-header tooltip-down" data-title="расширить" height="20px" width="20px"
+          viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M2.6 15.2643V14.7643H2.1V15.2643H2.6ZM47.4 15.2643H47.9V14.7643H47.4V15.2643ZM38.0706 9.12494C37.8629 9.30685 37.8419 9.62274 38.0238 9.8305C38.2057 10.0383 38.5216 10.0592 38.7294 9.87731L38.0706 9.12494ZM42 6.34913L42.3346 5.97759C42.1464 5.80809 41.8612 5.8061 41.6706 5.97294L42 6.34913ZM45.1654 9.87267C45.3706 10.0575 45.6867 10.0409 45.8715 9.83573C46.0563 9.63053 46.0398 9.31438 45.8346 9.12959L45.1654 9.87267ZM6 7.43405C5.72386 7.43405 5.5 7.65791 5.5 7.93405C5.5 8.21019 5.72386 8.43405 6 8.43405V7.43405ZM30 8.43405C30.2761 8.43405 30.5 8.21019 30.5 7.93405C30.5 7.65791 30.2761 7.43405 30 7.43405V8.43405ZM12 23.2833C11.7239 23.2833 11.5 23.5072 11.5 23.7833C11.5 24.0595 11.7239 24.2833 12 24.2833V23.2833ZM38 24.2833C38.2761 24.2833 38.5 24.0595 38.5 23.7833C38.5 23.5072 38.2761 23.2833 38 23.2833V24.2833ZM12 32.1985C11.7239 32.1985 11.5 32.4224 11.5 32.6985C11.5 32.9747 11.7239 33.1985 12 33.1985V32.1985ZM38 33.1985C38.2761 33.1985 38.5 32.9747 38.5 32.6985C38.5 32.4224 38.2761 32.1985 38 32.1985V33.1985ZM12 40.1231C11.7239 40.1231 11.5 40.347 11.5 40.6231C11.5 40.8993 11.7239 41.1231 12 41.1231V40.1231ZM38 41.1231C38.2761 41.1231 38.5 40.8993 38.5 40.6231C38.5 40.347 38.2761 40.1231 38 40.1231V41.1231ZM1.5 2.34569C1.5 1.89914 1.88477 1.5 2.40625 1.5V0.5C1.37443 0.5 0.5 1.30583 0.5 2.34569H1.5ZM1.5 13.9186V2.34569H0.5V13.9186H1.5ZM2.40625 14.7643C1.88477 14.7643 1.5 14.3652 1.5 13.9186H0.5C0.5 14.9585 1.37443 15.7643 2.40625 15.7643V14.7643ZM47.5938 14.7643H2.40625V15.7643H47.5938V14.7643ZM48.5 13.9186C48.5 14.3652 48.1152 14.7643 47.5938 14.7643V15.7643C48.6256 15.7643 49.5 14.9585 49.5 13.9186H48.5ZM48.5 2.34569V13.9186H49.5V2.34569H48.5ZM47.5938 1.5C48.1152 1.5 48.5 1.89914 48.5 2.34569H49.5C49.5 1.30583 48.6256 0.5 47.5938 0.5V1.5ZM2.40625 1.5H47.5938V0.5H2.40625V1.5ZM3.1 48.0525V15.2643H2.1V48.0525H3.1ZM3.54118 48.5C3.30068 48.5 3.1 48.3028 3.1 48.0525H2.1C2.1 48.8488 2.74208 49.5 3.54118 49.5V48.5ZM46.4588 48.5H3.54118V49.5H46.4588V48.5ZM46.9 48.0525C46.9 48.3028 46.6993 48.5 46.4588 48.5V49.5C47.2579 49.5 47.9 48.8488 47.9 48.0525H46.9ZM46.9 15.2643V48.0525H47.9V15.2643H46.9ZM2.6 15.7643H47.4V14.7643H2.6V15.7643ZM38.7294 9.87731L42.3294 6.72531L41.6706 5.97294L38.0706 9.12494L38.7294 9.87731ZM41.6654 6.72067L45.1654 9.87267L45.8346 9.12959L42.3346 5.97759L41.6654 6.72067ZM34.5 1V14.8681H35.5V1H34.5ZM6 8.43405H30V7.43405H6V8.43405ZM12 24.2833H38V23.2833H12V24.2833ZM12 33.1985H38V32.1985H12V33.1985ZM12 41.1231H38V40.1231H12V41.1231Z" />
+        </svg>
+      </div>
+
+      <div id="wrap-btn-author">
+        <div class="inset-help-box"></div>
+        <svg id="btn-author" class="popup-btn" data-popup="#popup-author" viewBox="0 0 64 64"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 0 32 0C14.3269 0 0 14.3269 0 32C0 49.6731 14.3269 64 32 64Z" />
+          <path class="eyes"
+            d="M44.5 36C48.6421 36 52 32.6421 52 28.5C52 24.3579 48.6421 21 44.5 21C40.3579 21 37 24.3579 37 28.5C37 32.6421 40.3579 36 44.5 36Z" />
+          <path
+            d="M44.5 32C46.433 32 48 30.433 48 28.5C48 26.567 46.433 25 44.5 25C42.567 25 41 26.567 41 28.5C41 30.433 42.567 32 44.5 32Z" />
+          <path class="eyes"
+            d="M19.5 36C23.6421 36 27 32.6421 27 28.5C27 24.3579 23.6421 21 19.5 21C15.3579 21 12 24.3579 12 28.5C12 32.6421 15.3579 36 19.5 36Z" />
+          <path
+            d="M19.5 32C21.433 32 23 30.433 23 28.5C23 26.567 21.433 25 19.5 25C17.567 25 16 26.567 16 28.5C16 30.433 17.567 32 19.5 32Z" />
+        </svg>
+      </div>
+
+      <div id="wrap-btn-cube">
+        <div class="inset-help-box"></div>
+        <svg id="btn-cube" class="popup-btn" data-popup="#popup-cube" viewBox="0 0 64 64"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 0 32 0C14.3269 0 0 14.3269 0 32C0 49.6731 14.3269 64 32 64Z" />
+          <path class="eyes"
+            d="M44.5 36C48.6421 36 52 32.6421 52 28.5C52 24.3579 48.6421 21 44.5 21C40.3579 21 37 24.3579 37 28.5C37 32.6421 40.3579 36 44.5 36Z" />
+          <path
+            d="M44.5 32C46.433 32 48 30.433 48 28.5C48 26.567 46.433 25 44.5 25C42.567 25 41 26.567 41 28.5C41 30.433 42.567 32 44.5 32Z" />
+          <path class="eyes"
+            d="M19.5 36C23.6421 36 27 32.6421 27 28.5C27 24.3579 23.6421 21 19.5 21C15.3579 21 12 24.3579 12 28.5C12 32.6421 15.3579 36 19.5 36Z" />
+          <path
+            d="M19.5 32C21.433 32 23 30.433 23 28.5C23 26.567 21.433 25 19.5 25C17.567 25 16 26.567 16 28.5C16 30.433 17.567 32 19.5 32Z" />
+        </svg>
+      </div>
+    </div>
+
+    <div id="main-center" class="layout-scrollbar layout-cell">
+      <div id="code-guide">
+
+        <h3>21-26. Чеклист на JavaScript</h3> <!-- сюда подставляется заголовок задачи с помощью JS -->
+
+        <div class="cCenter-task active" data-task="exercises-21-26">
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d 	 = document;
+let exs  	 = d.querySelector('#exercises-21-26'),		// контейнер с нашей задачей
+		input  = exs.querySelector('#input'),  					// input для ввода новых записей
+		list   = exs.querySelector('#list');  					// наш список ul
+
+// создаём запись по нажатию на Enter
+input.addEventListener('keypress', function(event) {
+
+	if(event.key == 'Enter') {
+		list.insertAdjacentHTML('afterBegin', '<li></li>'); // добавляем li в ul
+
+		let task = d.createElement('span');
+
+		task.classList.add('task');
+		task.innerHTML = this.value;
+
+		// добавляем созданную запись (найдёт только первый (верхний) li, в него и добавляем)
+		list.querySelector('li').appendChild(task);		
+
+		input.value = '';		// очищаем инпут
+
+		editNote(task);			// функция редактирования записи при двойном клике по созданной записи
+
+		createBtnRemove();	// создаем кнопку 'удалить'
+
+		createBtnMark();		// создаем кнопку 'сделано'
+	};
+
+});
+
+function editNote(task) {
+	task.addEventListener('dblclick', function(event) {
+		if (this.parentElement.querySelector('span > input') != null) {
+			return false; // условие, при котором не будет повторно создаваться input при повторном dblclick на уже созданном инпуте
+		} else {
+
+			let thisSpan  = this.parentElement.querySelector('span'),
+					tempInput = d.createElement('input'),
+					tempValue = tempInput.value = thisSpan.innerText;
+
+			thisSpan.innerText = "";
+			thisSpan.appendChild(tempInput);
+			tempInput.focus(); // в созданный инпут можно сразу вводить текст (фокус уже на нем)
+
+			// сохраняем изменения по нажатию на Enter
+			tempInput.addEventListener('keypress', function(event) {
+				if(event.key == 'Enter') {
+					tempValue = this.value;
+					this.parentElement.removeChild(tempInput);
+					thisSpan.innerText = tempValue;
+				};
+			});
+		};
+	});	
+}
+
+function createBtnRemove () {
+	let remove = d.createElement('span');
+
+	remove.classList.add('btn');
+	remove.innerHTML = 'удалить';
+	list.querySelector('li').appendChild(remove); // найдёт только первый li, в него и добавляем новую кнопку
+
+	remove.addEventListener('click', function() {
+		list.removeChild(this.parentElement);
+	});
+}	
+
+function createBtnMark () {
+	let mark = d.createElement('span');
+
+	mark.classList.add('btn');
+	mark.innerHTML = 'сделано';
+	list.querySelector('li').appendChild(mark); // найдёт только первый li, в него и добавляем новую кнопку
+
+	mark.addEventListener('click', function() {
+		this.parentElement.querySelector('span').classList.toggle('done');
+	});
+}
+						</code>
+          </div>
+        </div>
+
+        <div class="cCenter-task" data-task="exercises-27-30">
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d 						 = document;
+let exs  	 		 	 		 = d.querySelector('#exercises-27-30'),
+		textAria   	 		 = exs.querySelector('#text > textarea'),
+		saveBtn  	 	 		 = exs.querySelector('#text > button'),
+		newNoteBtn   		 = exs.querySelector('#create > button'),
+		notes 		 	 		 = exs.querySelector('#notes'),
+		texts 			 		 = {},
+		counterNotes 		 = 0,
+		activeNote   		 = newNoteBtn,
+		popupSaveNoteArr = [];
+
+saveBtn.addEventListener('click', function() {
+	if(saveBtn.getAttribute('data-mode') == "create") {
+		createNewNote();
+	} else {
+		editActiveNote();
+	}
+});
+
+function createNewNote () {
+	texts[counterNotes+1] = textAria.value;
+	counterNotes++;
+	textAria.value = '';
+
+	let note 			 = d.createElement('li'),
+			firstSpan  = d.createElement('span'),
+			secondSpan = d.createElement('span');
+
+	firstSpan.classList.add('first-span');
+	secondSpan.classList.add('second-span');
+	firstSpan.setAttribute('data-key', counterNotes);
+	firstSpan.innerText = 'запись ' + counterNotes;
+	secondSpan.innerText = '+';
+	notes.appendChild(note);
+	note.appendChild(firstSpan);
+	note.appendChild(secondSpan);
+
+	firstSpan.addEventListener('click', function() {
+		saveBtn.setAttribute('data-mode', "update");
+		textAria.value = texts[this.getAttribute('data-key')];
+		firstSpan.classList.add('active');
+		if(activeNote != this) {
+			activeNote.classList.remove('active');
+		}
+		activeNote = this;
+	});
+
+	secondSpan.addEventListener('click', function() {
+		note.parentElement.removeChild(note);
+		if (activeNote == this.parentElement.querySelector('.first-span')){
+			activeNote = newNoteBtn;
+			newNoteBtn.classList.add('active');
+			saveBtn.setAttribute('data-mode', "create");
+		}
+	});
+};
+
+function editActiveNote () {
+		texts[activeNote.getAttribute('data-key')] = textAria.value;
+};
+
+newNoteBtn.addEventListener('click', function() {
+	saveBtn.setAttribute('data-mode', "create");
+	this.classList.add('active');
+		if(activeNote != this) {
+			activeNote.classList.remove('active');
+		}
+		activeNote = this;
+	textAria.value = '';
+});
+
+/* Усовершенствование: теперь не обязательно нажимать "Сохранить" при редактировании, данные сохранются при уходе с textaria */
+textAria.addEventListener('blur', function () {
+	if (activeNote != newNoteBtn) {
+		texts[activeNote.getAttribute('data-key')] = textAria.value;
+		showPopupSaveNote()
+	}
+});
+
+function showPopupSaveNote () {
+	let popupSaveNote = d.createElement('span');
+	popupSaveNote.innerText = 'сохранено';
+	activeNote.appendChild(popupSaveNote);
+	popupSaveNote.classList.add('popup-save-note');
+	popupSaveNoteArr.push(popupSaveNote);
+
+	setTimeout(closePopupSaveNote, 3000);
+}
+
+function closePopupSaveNote () {
+	let popupSaveNote = popupSaveNoteArr[0];
+	popupSaveNote.parentElement.removeChild(popupSaveNote);
+	popupSaveNoteArr.shift();
+}
+
+						</code>
+          </div>
+        </div>
+
+        <div class="cCenter-task" data-task="exercise-37">
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d 		 = document;
+let exs    	 = d.querySelector('#exercise-37'),
+		inputs 	 = exs.querySelectorAll('input[data-right]');
+
+inputs.forEach((el) => el.addEventListener('keypress', function (event) {
+	if(event.key == 'Enter') {
+		checkoutAfterEvent (this) 
+	};
+}));
+
+inputs.forEach((el) => el.addEventListener('blur', function (event) {
+	checkoutAfterEvent (this) 
+}));
+
+function checkoutAfterEvent (elem) {
+	if (elem.getAttribute('data-right') == elem.value) {
+		elem.classList.remove('wrong');
+		elem.classList.add('right');
+	} else {
+		elem.classList.remove('right');
+		elem.classList.add('wrong');
+	}
+};
+
+						</code>
+          </div>
+        </div>
+
+        <div class="cCenter-task" data-task="exercise-38">
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d 		= document;
+let exs 		= d.querySelector('#exercise-38'),
+		inputs  = exs.querySelectorAll('input'),
+		answers = [
+			'21',
+			'11',
+			'10',
+		];
+
+inputs.forEach((el, i) => el.addEventListener('keypress', function (event) {
+	if(event.key == 'Enter') {
+		checkoutAfterEvent (this, answers, i)
+	};
+}));
+
+inputs.forEach((el, i) => el.addEventListener('blur', function (event) {
+	checkoutAfterEvent (this, answers, i) 
+}));
+
+
+function checkoutAfterEvent (elem, arrAnswers, i) {
+	//подсовываем индекс элемента из коллекции forEach в массив answers
+	if (arrAnswers[i] == elem.value) {
+		elem.classList.remove('wrong')
+		elem.classList.add('right')
+	} else {
+		elem.classList.remove('right')
+		elem.classList.add('wrong')
+	}
+};
+
+						</code>
+          </div>
+        </div>
+
+        <div class="cCenter-task" data-task="exercise-39">
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d 			= document;
+let exs 	  	= d.getElementById('exercise-39-body'),
+		btnTest	  = exs.querySelector('#btn-test-39'),
+		inputs,
+		questions = [
+			'Вопрос 1? Правильный ответ: 21',
+			'Вопрос 2? Правильный ответ: 11',
+			'Вопрос 3? Правильный ответ: 10',
+		],
+		answers 	= [
+			'21',
+			'11',
+			'10',
+		];
+
+btnTest.addEventListener('click', createTest);
+
+function createTest () {
+	if (!exs.contains(exs.querySelector('div'))) {
+
+	questions.forEach(function(el, i) {
+		let temp = exs.appendChild(d.createElement('div'));	
+		temp.appendChild(d.createElement('span')).innerText = questions[i];
+		temp.appendChild(d.createElement('input'));
+	});
+
+	inputs = exs.querySelectorAll('input');
+
+	inputs.forEach((el, i) => el.addEventListener('keypress', function (event) {
+		if(event.key == 'Enter') {
+			checkoutAfterEvent (this, answers, i)
+		};
+	}));
+
+		inputs.forEach((el, i) => el.addEventListener('blur', function (event) {
+			checkoutAfterEvent (this, answers, i)
+		}));
+
+	} else {
+		resetInputs(inputs);
+	};	
+};
+
+function resetInputs(inputs) {
+	inputs.forEach(function (el) {
+		el.value = '';
+		el.classList.remove('right');
+		el.classList.remove('wrong');
+	}); 
+}
+
+function checkoutAfterEvent (elem, arrAnswers, i) {
+	//подсовываем индекс элемента из коллекции forEach в массив answers
+	if (arrAnswers[i] == elem.value) {
+		elem.classList.remove('wrong')
+		elem.classList.add('right')
+	} else {
+		elem.classList.remove('right')
+		elem.classList.add('wrong')
+	}
+};
+						</code>
+          </div>
+        </div>
+
+        <div class="cCenter-task" data-task="exercise-40">
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d 	= document;
+let exs 	= d.getElementById('exercise-40-body'),
+	btnTest	= exs.querySelector('#btn-test-40'),
+	inputs,
+	obj			= {
+		'Вопрос 1? Правильный ответ: 21' : '21',
+		'Вопрос 2? Правильный ответ: 11' : '11',
+		'Вопрос 3? Правильный ответ: 10' : '10',
+	};
+
+btnTest.addEventListener('click', createTest);
+
+function createTest () {
+	if (!exs.contains(exs.querySelector('div'))) {
+
+		for (let key in obj) {
+			let temp = exs.appendChild(d.createElement('div'));	
+			temp.appendChild(d.createElement('span')).innerText = key;
+			temp.appendChild(d.createElement('input'));
+		};
+
+		inputs = exs.querySelectorAll('input');
+
+		inputs.forEach(el => el.addEventListener('keypress', function (event) {
+			if(event.key == 'Enter') {
+				checkoutAfterEvent(this);
+			};
+		}));
+
+		inputs.forEach(el => el.addEventListener('blur', function (event) {
+			checkoutAfterEvent(this);
+		}));
+
+	} else {
+		resetInputs(inputs);
+	}
+}
+
+function checkoutAfterEvent(elem) {
+	let key = elem.previousElementSibling.innerText;		// это ключ объекта с вопросами и ответами
+
+	if (elem.value == obj[key]) {												// находим правильное значение по ключу в объекте
+		elem.classList.remove('wrong')
+		elem.classList.add('right')
+	} else {
+		elem.classList.remove('right')
+		elem.classList.add('wrong')
+	}
+
+}
+	
+function resetInputs(inputs) {
+	inputs.forEach(function (el) {
+		el.value = '';
+		el.classList.remove('right');
+		el.classList.remove('wrong');
+	}); 
+}
+						</code>
+          </div>
+        </div>
+
+        <div class="cCenter-task" data-task="exercise-41">
+          <p><span>Задача 1</span>Сделайте так, чтобы при выборе одного из ответов вопроса этот ответ сразу проверялся
+            на правильность.</p>
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d  = document;
+let exs  = d.getElementById('exercise-41-1'),
+	inputs = exs.querySelectorAll('input');
+
+inputs.forEach((el) => el.addEventListener('change', function() {
+	if (el.getAttribute('data-right') !== null) {
+		el.parentElement.classList.remove('wrong')
+		el.parentElement.classList.add('right')		
+	} else {
+		el.parentElement.classList.remove('right')
+		el.parentElement.classList.add('wrong')	
+	}
+}));
+						</code>
+          </div>
+
+          <p><span>Задача 2</span>Модифицируйте ваш код так, чтобы проверка ответов выполнялась по нажатию на кнопку.
+          </p>
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">let exs   = d.getElementById('exercise-41-2'),
+	inputs  = exs.querySelectorAll('input'),
+	btnTest = exs.querySelector('#btn-test-41');
+
+btnTest.addEventListener('click', resultTest);
+
+function resultTest() {
+	//проверка на заполненность inputs
+	let arrChecked = [];
+	inputs.forEach((el) => { 
+		if (el.checked) {
+			arrChecked.push(el.checked);
+		};
+	});
+	if (arrChecked.length &lt; 3) {
+		//если не заполнено, то выводим сообщение об этом и сначала найдём куда именно его выводить
+		let parent = exs.querySelector('.wrap-btn');
+		return showPopupNotFilledIn(parent);
+	}
+	//если на кнопке 'Результат теста', то узнаем результат
+	if (btnTest.innerText == 'Результат теста') {
+		inputs.forEach(function(el) {
+		if (el.checked) {
+			if (el.getAttribute('data-right') !== null) {
+				el.parentElement.classList.add('right')		
+			} else {
+				el.parentElement.classList.add('wrong');
+				let currentInputName = el.name;
+				inputs.forEach((elem) => {
+					if (elem.name == currentInputName &amp;&amp; elem.getAttribute('data-right') !== null) {
+						elem.parentElement.classList.add('right');
+					};
+				});
+			};
+		};
+	});
+
+	btnTest.innerText = 'Начать сначала';
+	//иначе очищаем результат
+	} else {
+		resetTest(btnTest, inputs);
+	}
+}
+					
+function showPopupNotFilledIn (parent) {
+	if(!parent.contains(parent.querySelector('.popup-test'))) { // Запускать только если уже не создан popup
+		let popupSpan = d.createElement('span');
+		popupSpan.innerText = 'Ответте на все вопросы';
+		parent.appendChild(popupSpan);
+		popupSpan.classList.add('popup-test');		
+
+		setTimeout(function(){delPopupNotFilledIn(popupSpan)}, 3000); //т.к. нам нужно передать функцию с параметром, а setTimeout по умолчанию не даёт этого сделать, то вкладываем анонимную функцию, которая вызывает нужную нам фукцию с нужным нам параметром.
+	}; 
+};
+
+function delPopupNotFilledIn (popup) {
+	popup.parentElement.removeChild(popup);
+}
+
+function resetTest(btn, inputs) { 
+	btn.innerText = 'Результат теста';
+	inputs.forEach((el) => {
+		el.parentElement.classList.remove('right', 'wrong');
+		el.checked = false;
+	});
+}
+
+						</code>
+          </div>
+        </div>
+
+        <div class="cCenter-task" data-task="exercise-42">
+          <p>В условии задачи ничего не говорилось про указание атрибута value в HTML, без которого решить задачу было
+            бы трудно, поэтому я добавил этот атрибут. Если же нужно было обойтись без него, то любопытно узнать это
+            решение.</p>
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d 		= document;
+let exs 		= d.getElementById('exercise-42'),
+	inputs  	= exs.querySelectorAll('input'),
+	btnTest   = exs.querySelector('#btn-test-42'),
+	answerArr = ['1','2','3'];
+
+btnTest.addEventListener('click', resultTest);
+
+function resultTest() {
+
+	//проверка на заполненность inputs
+	let arrChecked = [];
+
+	inputs.forEach((el) => { 
+		if (el.checked) {
+			arrChecked.push(el);
+		};
+	});
+	
+	if (arrChecked.length &lt; 3) {
+		//если не заполнено, то выводим сообщение об этом и сначала найдём куда именно его выводить
+		let parent = exs.querySelector('.wrap-btn');
+		return showPopupNotFilledIn(parent);
+	}
+	
+	//если на кнопке 'Результат теста', то узнаем результат
+	if (btnTest.innerText == 'Результат теста') {
+		//перебираем "чекнутые" inputs и подставляем индекс массива "arrChecked" в массив с правильными ответами
+		for (let i = 0; i &lt; arrChecked.length; i++) {
+			if(arrChecked[i].value == answerArr[i])	{
+				arrChecked[i].parentElement.classList.add('right');
+			} else {
+				arrChecked[i].parentElement.classList.add('wrong');
+			}
+		}
+		
+		inputs.forEach(function(elem) { 		//ищем и показываем все правильные варианты
+
+			switch (elem.name) {
+				case 'name-1_42':
+					if(elem.value == answerArr[0]) {
+						elem.parentElement.classList.add('right');
+					}
+					break;
+				case 'name-2_42':
+					if(elem.value == answerArr[1]) {
+						elem.parentElement.classList.add('right');
+					}
+					break;
+				case 'name-3_42':
+					if(elem.value == answerArr[2]) {
+						elem.parentElement.classList.add('right');
+					}
+					break;
+			}
+			
+//закоментированный код делает тоже самое, что и switch выше, но в исполнении if-ов
+//			if (elem.name == 'name-1_42' &amp;&amp; elem.value == answerArr[0]) {
+//				elem.parentElement.classList.add('right');
+//			} 
+//			if (elem.name == 'name-2_42' &amp;&amp; elem.value == answerArr[1]) {
+//				elem.parentElement.classList.add('right');
+//			} 
+//			if (elem.name == 'name-3_42' &amp;&amp; elem.value == answerArr[2]) {
+//				elem.parentElement.classList.add('right');
+//			} 
+	
+		});
+		
+		btnTest.innerText = 'Начать сначала';
+	
+	} else {		//иначе очищаем результат
+		resetTest(btnTest, inputs);
+	}
+}
+						
+function showPopupNotFilledIn (parent) {
+	if(!parent.contains(parent.querySelector('.popup-test'))) { // Запускать только если уже не создан popup
+		let popupSpan = d.createElement('span');
+		popupSpan.innerText = 'Ответте на все вопросы';
+		parent.appendChild(popupSpan);
+		popupSpan.classList.add('popup-test');		
+
+		setTimeout(function(){delPopupNotFilledIn(popupSpan)}, 3000); //т.к. нам нужно передать функцию с параметром, а setTimeout по умолчанию не даёт этого сделать, то вкладываем анонимную функцию, которая вызывает нужную нам фукцию с нужным нам параметром.
+	}; 
+};
+
+function resetTest(btn, inputs) { 
+	btn.innerText = 'Результат теста';
+	inputs.forEach((el) => {
+		el.parentElement.classList.remove('right', 'wrong');
+		el.checked = false;
+	});
+}
+
+
+						</code>
+          </div>
+        </div>
+
+        <div class="cCenter-task" data-task="exercise-43">
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d			= document;
+let exs 		= d.getElementById('exercise-43'),
+	btnTest   = exs.querySelector('#btn-test-43'),
+	questions = [
+		{
+			text: 'вопрос 1?',
+			right: 0,
+			variants: [
+				'ответ 1',
+				'ответ 2',
+				'ответ 3'
+			]
+		},
+		{
+			text: 'вопрос 2?',
+			right: 1,
+			variants: [
+				'ответ 1',
+				'ответ 2',
+				'ответ 3'
+			]
+		},
+		{
+			text: 'вопрос 3?',
+			right: 2,
+			variants: [
+				'ответ 1',
+				'ответ 2',
+				'ответ 3'
+			]
+		},
+	],
+	cntr = btnTest.parentElement.parentElement;											// контейнер в котором будем создавать тест
+
+/* Так как при создании div-ов мы будем вставлять их в тот же контейнер, что и кнопку, но перед ней, то метод appendChild нам не подходит. Можно было бы создать контейнер в контейнере, но в моём случае уже подвязаны стили, которые влияют на несколько упражнений выше, поэтому будем пробовать другим способом. Вместе с тем, так как каждый новый div будет вставляться в начало, то значения, записанные из массива должны сначала браться с конца массива. Поэтому, первым делом переворачиваем массив. */
+
+/* правильным будем считать только тот input, которому присвоим data-атрибут right (неважно с каким значением) */
+
+questions = questions.reverse();
+
+btnTest.addEventListener('click', resultTest);										// вешаем событие на кнопку
+
+function createTest () {																					// создаем тест
+
+	/* Чуть позже нам нужно будет создать input с типом 'radio', а это значит, что необходимо добавить атрибут 'name', который будет связывать inputs для возможности выбора только одного из них. Чтобы для каждого вопроса был свой 'name', заведём счётчик. */
+
+	let counter1 = makeCounterForName();														// счётчик для атрибута inputs 'name'
+
+	questions.forEach(function(el) {																// перебираем наш массив с объектами и формируем HTML
+
+		//let childDiv = cntr.appendChild(d.createElement('div'));		// appendChild нам не подходит
+
+		let childDiv = cntr.insertBefore(d.createElement('div'), cntr.firstChild);	// создаем div
+
+		childDiv.appendChild(d.createElement('span')).innerText = el.text;	// создаем span с вопросом внутри div		
+
+		let currentCount1 = counter1(),
+				counter2 			= makeCounterForData();											// счётчик для атрибута inputs 'data-count'
+
+		el.variants.forEach(function(elem) {
+
+			let label = childDiv.appendChild(d.createElement('label'));	// создаем label с вариантом ответа внутри div	
+
+			label.innerText = elem;																			// вписываем вариант ответа
+
+			let input = label.insertBefore(d.createElement('input'), label.firstChild);		// вставляем в начало (перед текстом ответа)
+
+			input.setAttribute('type', "radio");												// указываем тип input
+			input.setAttribute('name', `name-${currentCount1}_43`);			// подставляем в название счётчик	1	
+
+			if(el.right == counter2()) {
+				input.setAttribute('data-right', el.right);								// сохраняем в data-атибуте номер правильного ответа
+			}
+
+		});
+	});
+}
+
+function makeCounterForName() {																					// функция создания счётчика
+	function counter() {
+		return counter.currentCounter--;																		// отнимаем -1
+	}
+	counter.currentCounter = questions.length;														// длина массива, который будем перебирать 
+
+	return counter;
+}
+
+function makeCounterForData() {																					// функция создания счётчика
+	function counter() {
+		return counter.currentCounter++;																		// прибавляем +1
+	}
+	counter.currentCounter = 0;																						
+
+	return counter;
+}
+
+function resultTest() {
+
+	// проверяем создан ли уже тест, узнавая наличие input в div для нашего теста
+	if(!cntr.querySelector('input')) { 								// null - нет input - значит создаем HTML и на этом пока всё
+		createTest();
+	} else {																					// иначе проверяем заполненность inputs
+
+		let	inputs   = exs.querySelectorAll('input'),
+			arrChecked = [];															// здесь будем хранить чекнутые input для последующей проверки
+
+		inputs.forEach((el) => { 
+			if (el.checked) {
+				arrChecked.push(el);
+			};
+		});
+
+		if (arrChecked.length &lt; questions.length) {			// если не заполнены, то выводим сообщение об этом
+
+			let parent = exs.querySelector('.wrap-btn');	// и сначала найдём куда именно его выводить
+
+			return showPopupNotFilledIn(parent);					// выводим сообщение и выходим из функции
+		}
+
+		// если же тест заполнен, то проверяем его
+
+		if (btnTest.innerText == 'Результат теста') {		// если на кнопке 'Результат теста', то узнаем результат
+			getResult(arrChecked, inputs);
+		} else {
+			resetTest(btnTest, inputs);										// иначе очищаем результат
+		}
+	}
+}
+
+function getResult(arrChecked, inputs) {
+
+	arrChecked = arrChecked.reverse(); 								// реверсируем массив, т.к. сравнивать будем также с реверсивным массивом
+
+	//перебираем "чекнутые" inputs и подставляем индекс массива "arrChecked" в массив с правильными ответами
+	for (let i = 0; i &lt; arrChecked.length; i++) {
+		if(arrChecked[i].hasAttribute('data-right'))	{	// если содержит атрибут data-right, то..
+			arrChecked[i].parentElement.classList.add('right');
+		} else {
+			arrChecked[i].parentElement.classList.add('wrong');
+		}
+	}
+
+	//ищем и показываем все правильные варианты
+	inputs.forEach(function(elem) { 
+		if(elem.hasAttribute('data-right'))	{			  		// если содержит атрибут data-right, то..
+			elem.parentElement.classList.add('right');
+		}
+	});
+
+	btnTest.innerText = 'Начать сначала';
+}
+						</code>
+          </div>
+        </div>
+
+
+        <div class="cCenter-task" data-task="exercise-">
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d 			= document;
+
+						</code>
+          </div>
+        </div>
+
+        <div class="cCenter-task" data-task="exercise-">
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d 			= document;
+
+						</code>
+          </div>
+        </div>
+
+        <div class="cCenter-task" data-task="exercise-">
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d 			= document;
+
+						</code>
+          </div>
+        </div>
+
+        <div class="cCenter-task" data-task="exercise-">
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d 			= document;
+
+						</code>
+          </div>
+        </div>
+
+        <div class="cCenter-task" data-task="exercise-">
+          <div class="block">
+            <code class="highlight" data-module="highlight" data-lang="javascript">const d 			= document;
+
+						</code>
+          </div>
+        </div>
+
+      </div> <!-- /code-guide -->
+
+    </div> <!-- /main-center -->
+  </div> <!-- /cCenter -->
+
+
+  <div id="cRight">
+    <div id="header-right">
+      <p class="info">Результат кода (пример)</p>
+      <svg id="close-cRight" class="btn-icon-header" width="14" height="14" viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg">
+        <line x1="1" x2="47" y1="47" y2="1" />
+        <line x1="1" x2="47" y1="1" y2="47" />
+      </svg>
+
+      <div id="collapse-expand-tasks" class="btn-icon-header">
+        <svg id="collapse-tasks" height="20px" width="20px" viewBox="0 0 50 40" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6 7.44215C5.72386 7.44215 5.5 7.66601 5.5 7.94215C5.5 8.21829 5.72386 8.44215 6 8.44215V7.44215ZM30 8.44215C30.2761 8.44215 30.5 8.21829 30.5 7.94215C30.5 7.66601 30.2761 7.44215 30 7.44215V8.44215ZM38.7295 6.07845C38.5218 5.89649 38.2059 5.91736 38.0239 6.12507C37.8419 6.33279 37.8628 6.64868 38.0705 6.83064L38.7295 6.07845ZM42 9.60826L41.6705 9.98436C41.8611 10.1513 42.1465 10.1493 42.3347 9.97972L42 9.60826ZM45.8347 6.826C46.0398 6.64115 46.0563 6.32499 45.8715 6.11985C45.6866 5.9147 45.3704 5.89824 45.1653 6.08309L45.8347 6.826ZM6 31.1612C5.72386 31.1612 5.5 31.385 5.5 31.6612C5.5 31.9373 5.72386 32.1612 6 32.1612V31.1612ZM30 32.1612C30.2761 32.1612 30.5 31.9373 30.5 31.6612C30.5 31.385 30.2761 31.1612 30 31.1612V32.1612ZM38.7295 30.7892C38.5218 30.6072 38.2059 30.6281 38.0239 30.8358C37.8419 31.0435 37.8628 31.3594 38.0705 31.5414L38.7295 30.7892ZM42 34.319L41.6705 34.6951C41.8611 34.8621 42.1465 34.8601 42.3347 34.6905L42 34.319ZM45.8347 31.5367C46.0398 31.3519 46.0563 31.0357 45.8715 30.8306C45.6866 30.6254 45.3704 30.609 45.1653 30.7938L45.8347 31.5367ZM1.5 2.34726C1.5 1.89931 1.88533 1.5 2.40625 1.5V0.5C1.37387 0.5 0.5 1.30707 0.5 2.34726H1.5ZM1.5 13.9337V2.34726H0.5V13.9337H1.5ZM2.40625 14.781C1.88533 14.781 1.5 14.3817 1.5 13.9337H0.5C0.5 14.9739 1.37387 15.781 2.40625 15.781V14.781ZM47.5938 14.781H2.40625V15.781H47.5938V14.781ZM48.5 13.9337C48.5 14.3817 48.1147 14.781 47.5938 14.781V15.781C48.6261 15.781 49.5 14.9739 49.5 13.9337H48.5ZM48.5 2.34726V13.9337H49.5V2.34726H48.5ZM47.5938 1.5C48.1147 1.5 48.5 1.89931 48.5 2.34726H49.5C49.5 1.30707 48.6261 0.5 47.5938 0.5V1.5ZM2.40625 1.5H47.5938V0.5H2.40625V1.5ZM2.6 15.781H47.4V14.781H2.6V15.781ZM34.5 1V14.8843H35.5V1H34.5ZM6 8.44215H30V7.44215H6V8.44215ZM38.0705 6.83064L41.6705 9.98436L42.3295 9.23217L38.7295 6.07845L38.0705 6.83064ZM42.3347 9.97972L45.8347 6.826L45.1653 6.08309L41.6653 9.23681L42.3347 9.97972ZM1.5 26.0663C1.5 25.6183 1.88533 25.219 2.40625 25.219V24.219C1.37387 24.219 0.5 25.0261 0.5 26.0663H1.5ZM1.5 37.6527V26.0663H0.5V37.6527H1.5ZM2.40625 38.5C1.88533 38.5 1.5 38.1007 1.5 37.6527H0.5C0.5 38.6929 1.37387 39.5 2.40625 39.5V38.5ZM48.5 37.6527C48.5 38.1007 48.1147 38.5 47.5938 38.5V39.5C48.6261 39.5 49.5 38.6929 49.5 37.6527H48.5ZM48.5 26.0663V37.6527H49.5V26.0663H48.5ZM47.5938 25.219C48.1147 25.219 48.5 25.6183 48.5 26.0663H49.5C49.5 25.0261 48.6261 24.219 47.5938 24.219V25.219ZM2.40625 25.219H35V24.219H2.40625V25.219ZM35 25.219H47.5938V24.219H35V25.219ZM34.5 24.719V38.6033H35.5V24.719H34.5ZM6 32.1612H30V31.1612H6V32.1612ZM38.0705 31.5414L41.6705 34.6951L42.3295 33.9429L38.7295 30.7892L38.0705 31.5414ZM42.3347 34.6905L45.8347 31.5367L45.1653 30.7938L41.6653 33.9476L42.3347 34.6905ZM47.5938 38.5H2.40625V39.5H47.5938V38.5Z" />
+        </svg>
+        <svg id="expand-tasks" height="20px" width="20px" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M2.6 15.2643V14.7643H2.1V15.2643H2.6ZM47.4 15.2643H47.9V14.7643H47.4V15.2643ZM38.0706 9.12494C37.8629 9.30685 37.8419 9.62274 38.0238 9.8305C38.2057 10.0383 38.5216 10.0592 38.7294 9.87731L38.0706 9.12494ZM42 6.34913L42.3346 5.97759C42.1464 5.80809 41.8612 5.8061 41.6706 5.97294L42 6.34913ZM45.1654 9.87267C45.3706 10.0575 45.6867 10.0409 45.8715 9.83573C46.0563 9.63053 46.0398 9.31438 45.8346 9.12959L45.1654 9.87267ZM6 7.43405C5.72386 7.43405 5.5 7.65791 5.5 7.93405C5.5 8.21019 5.72386 8.43405 6 8.43405V7.43405ZM30 8.43405C30.2761 8.43405 30.5 8.21019 30.5 7.93405C30.5 7.65791 30.2761 7.43405 30 7.43405V8.43405ZM12 23.2833C11.7239 23.2833 11.5 23.5072 11.5 23.7833C11.5 24.0595 11.7239 24.2833 12 24.2833V23.2833ZM38 24.2833C38.2761 24.2833 38.5 24.0595 38.5 23.7833C38.5 23.5072 38.2761 23.2833 38 23.2833V24.2833ZM12 32.1985C11.7239 32.1985 11.5 32.4224 11.5 32.6985C11.5 32.9747 11.7239 33.1985 12 33.1985V32.1985ZM38 33.1985C38.2761 33.1985 38.5 32.9747 38.5 32.6985C38.5 32.4224 38.2761 32.1985 38 32.1985V33.1985ZM12 40.1231C11.7239 40.1231 11.5 40.347 11.5 40.6231C11.5 40.8993 11.7239 41.1231 12 41.1231V40.1231ZM38 41.1231C38.2761 41.1231 38.5 40.8993 38.5 40.6231C38.5 40.347 38.2761 40.1231 38 40.1231V41.1231ZM1.5 2.34569C1.5 1.89914 1.88477 1.5 2.40625 1.5V0.5C1.37443 0.5 0.5 1.30583 0.5 2.34569H1.5ZM1.5 13.9186V2.34569H0.5V13.9186H1.5ZM2.40625 14.7643C1.88477 14.7643 1.5 14.3652 1.5 13.9186H0.5C0.5 14.9585 1.37443 15.7643 2.40625 15.7643V14.7643ZM47.5938 14.7643H2.40625V15.7643H47.5938V14.7643ZM48.5 13.9186C48.5 14.3652 48.1152 14.7643 47.5938 14.7643V15.7643C48.6256 15.7643 49.5 14.9585 49.5 13.9186H48.5ZM48.5 2.34569V13.9186H49.5V2.34569H48.5ZM47.5938 1.5C48.1152 1.5 48.5 1.89914 48.5 2.34569H49.5C49.5 1.30583 48.6256 0.5 47.5938 0.5V1.5ZM2.40625 1.5H47.5938V0.5H2.40625V1.5ZM3.1 48.0525V15.2643H2.1V48.0525H3.1ZM3.54118 48.5C3.30068 48.5 3.1 48.3028 3.1 48.0525H2.1C2.1 48.8488 2.74208 49.5 3.54118 49.5V48.5ZM46.4588 48.5H3.54118V49.5H46.4588V48.5ZM46.9 48.0525C46.9 48.3028 46.6993 48.5 46.4588 48.5V49.5C47.2579 49.5 47.9 48.8488 47.9 48.0525H46.9ZM46.9 15.2643V48.0525H47.9V15.2643H46.9ZM2.6 15.7643H47.4V14.7643H2.6V15.7643ZM38.7294 9.87731L42.3294 6.72531L41.6706 5.97294L38.0706 9.12494L38.7294 9.87731ZM41.6654 6.72067L45.1654 9.87267L45.8346 9.12959L42.3346 5.97759L41.6654 6.72067ZM34.5 1V14.8681H35.5V1H34.5ZM6 8.43405H30V7.43405H6V8.43405ZM12 24.2833H38V23.2833H12V24.2833ZM12 33.1985H38V32.1985H12V33.1985ZM12 41.1231H38V40.1231H12V41.1231Z" />
+        </svg>
+      </div>
+
+      <div id="toggle-width-cRight" class="btn-icon-header">
+
+        <svg id="cRight-md" width="18" height="18" viewBox="0 0 49 48" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M0.993141 0.489796C0.993141 0.219289 1.21243 0 1.48294 0H20.0863C20.3568 0 20.5761 0.219289 20.5761 0.489796C20.5761 0.760303 20.3568 0.979592 20.0863 0.979592H1.48294C1.21243 0.979592 0.993141 0.760303 0.993141 0.489796ZM28.4086 0.489796C28.4086 0.219289 28.6279 0 28.8984 0H47.5018C47.7723 0 47.9916 0.219289 47.9916 0.489796C47.9916 0.760303 47.7723 0.979592 47.5018 0.979592H28.8984C28.6279 0.979592 28.4086 0.760303 28.4086 0.489796ZM0.993141 8.84898C0.993141 8.57847 1.21243 8.35918 1.48294 8.35918H20.0863C20.3568 8.35918 20.5761 8.57847 20.5761 8.84898C20.5761 9.11948 20.3568 9.33877 20.0863 9.33877H1.48294C1.21243 9.33877 0.993141 9.11948 0.993141 8.84898ZM28.4086 8.84898C28.4086 8.57847 28.6279 8.35918 28.8984 8.35918H47.5018C47.7723 8.35918 47.9916 8.57847 47.9916 8.84898C47.9916 9.11948 47.7723 9.33877 47.5018 9.33877H28.8984C28.6279 9.33877 28.4086 9.11948 28.4086 8.84898ZM40.6346 15.3161C40.832 15.1311 41.1419 15.1412 41.3269 15.3386L48.5392 23.0353C48.7157 23.2237 48.7157 23.5168 48.5392 23.7052L41.3269 31.4019C41.1419 31.5993 40.832 31.6094 40.6346 31.4244C40.4372 31.2395 40.4271 30.9295 40.6121 30.7321L47.0506 23.8611L2.29055 23.9039L8.73093 30.7769C8.91589 30.9743 8.90582 31.2843 8.70843 31.4693C8.51104 31.6542 8.20108 31.6441 8.01612 31.4468L0.803962 23.7501C0.627439 23.5617 0.627439 23.2687 0.803962 23.0803L8.01612 15.3837C8.20108 15.1863 8.51104 15.1762 8.70843 15.3612C8.90582 15.5461 8.91589 15.8561 8.73093 16.0535L2.29257 22.9243L47.0526 22.8815L40.6121 16.0084C40.4271 15.811 40.4372 15.501 40.6346 15.3161ZM0.993141 39.151C0.993141 38.8805 1.21243 38.6612 1.48294 38.6612H20.0863C20.3568 38.6612 20.5761 38.8805 20.5761 39.151C20.5761 39.4215 20.3568 39.6408 20.0863 39.6408H1.48294C1.21243 39.6408 0.993141 39.4215 0.993141 39.151ZM28.4086 39.151C28.4086 38.8805 28.6279 38.6612 28.8984 38.6612H47.5018C47.7723 38.6612 47.9916 38.8805 47.9916 39.151C47.9916 39.4215 47.7723 39.6408 47.5018 39.6408H28.8984C28.6279 39.6408 28.4086 39.4215 28.4086 39.151ZM0.993141 47.5102C0.993141 47.2397 1.21243 47.0204 1.48294 47.0204H20.0863C20.3568 47.0204 20.5761 47.2397 20.5761 47.5102C20.5761 47.7807 20.3568 48 20.0863 48H1.48294C1.21243 48 0.993141 47.7807 0.993141 47.5102ZM28.4086 47.5102C28.4086 47.2397 28.6279 47.0204 28.8984 47.0204H47.5018C47.7723 47.0204 47.9916 47.2397 47.9916 47.5102C47.9916 47.7807 47.7723 48 47.5018 48H28.8984C28.6279 48 28.4086 47.7807 28.4086 47.5102Z" />
+        </svg>
+
+        <svg id="cRight-sm" width="18" height="18" viewBox="0 0 49 49" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.5 2.28882e-05C0.223858 2.28882e-05 0 0.223881 0 0.500023C0 0.776165 0.223858 1.00002 0.5 1.00002V2.28882e-05ZM48.5 1.00002C48.7761 1.00002 49 0.776165 49 0.500023C49 0.223881 48.7761 2.28882e-05 48.5 2.28882e-05V1.00002ZM0.5 8.20002C0.223858 8.20002 2.19458e-08 8.42388 0 8.70002C-2.19458e-08 8.97617 0.223858 9.20002 0.5 9.20002L0.5 8.20002ZM48.5 9.20003C48.7761 9.20003 49 8.97617 49 8.70003C49 8.42388 48.7761 8.20003 48.5 8.20003L48.5 9.20003ZM0.497277 23.4667C0.221138 23.4682 -0.0014966 23.6933 7.41623e-06 23.9694C0.00151143 24.2456 0.226585 24.4682 0.502723 24.4667L0.497277 23.4667ZM20.6135 23.8571L20.9747 24.2029L21.3057 23.8571L20.9747 23.5114L20.6135 23.8571ZM28.0361 24.1429L27.6749 23.7971L27.3438 24.1429L27.6749 24.4887L28.0361 24.1429ZM48.5043 24.4667C48.7804 24.4643 49.0024 24.2385 49 23.9624C48.9976 23.6863 48.7718 23.4643 48.4957 23.4667L48.5043 24.4667ZM0.5 39.9C0.223858 39.9 0 40.1239 0 40.4C0 40.6762 0.223858 40.9 0.5 40.9V39.9ZM48.5 40.9C48.7761 40.9 49 40.6762 49 40.4C49 40.1239 48.7761 39.9 48.5 39.9V40.9ZM0.5 48C0.223858 48 0 48.2239 0 48.5C0 48.7762 0.223858 49 0.5 49V48ZM48.5 49C48.7761 49 49 48.7762 49 48.5C49 48.2239 48.7761 48 48.5 48V49ZM35.1977 32.3458C35.3886 32.5453 35.7051 32.5521 35.9046 32.3612C36.1041 32.1702 36.1109 31.8537 35.92 31.6542L35.1977 32.3458ZM35.92 16.6316C36.1109 16.4321 36.1041 16.1156 35.9046 15.9246C35.7051 15.7337 35.3886 15.7405 35.1977 15.94L35.92 16.6316ZM13.4519 15.6542C13.2609 15.4548 12.9444 15.4479 12.745 15.6389C12.5455 15.8298 12.5386 16.1463 12.7296 16.3458L13.4519 15.6542ZM12.7296 31.3685C12.5386 31.5679 12.5455 31.8844 12.745 32.0754C12.9444 32.2664 13.2609 32.2595 13.4519 32.06L12.7296 31.3685ZM0.5 1.00002H48.5V2.28882e-05H0.5V1.00002ZM0.5 9.20002L48.5 9.20003L48.5 8.20003L0.5 8.20002L0.5 9.20002ZM0.502723 24.4667L20.6162 24.3571L20.6108 23.3571L0.497277 23.4667L0.502723 24.4667ZM28.0404 24.6429L48.5043 24.4667L48.4957 23.4667L28.0317 23.6429L28.0404 24.6429ZM0.5 40.9H48.5V39.9H0.5V40.9ZM0.5 49H48.5V48H0.5V49ZM35.92 31.6542L28.3972 23.7971L27.6749 24.4887L35.1977 32.3458L35.92 31.6542ZM28.3972 24.4887L35.92 16.6316L35.1977 15.94L27.6749 23.7971L28.3972 24.4887ZM12.7296 16.3458L20.2524 24.2029L20.9747 23.5114L13.4519 15.6542L12.7296 16.3458ZM20.2524 23.5114L12.7296 31.3685L13.4519 32.06L20.9747 24.2029L20.2524 23.5114Z" />
+        </svg>
+
+      </div>
+
+    </div>
+
+    <div id="resize-right" class="resize"></div>
+
+    <div id="main-right" class="layout-scrollbar layout-cell">
+      <div id="result-code">
+
+        <!-- /*----------- 21-26. Чеклист на JavaScript ---------------*/ -->
+        <h2 id="h2-21-26" class="title-h2">Чеклист на JavaScript</h2>
+        <div class="exercise" id="exercises-21-26">
+          <div class=wrap-h3>
+            <h3 class="btn-h3" data-parent="#exercises-21-26">21-26. Чеклист на JavaScript</h3>
+            <svg class="collapse-expand" width="20" height="20" viewBox="0 0 256 256" xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path
+                d="M38.399,76.8c1.637,0,3.274,0.625,4.524,1.875l85.075,85.076l85.075-85.076c2.5-2.5,6.55-2.5,9.05,0s2.5,6.55,0,9.05  l-89.6,89.601c-2.5,2.5-6.551,2.5-9.051,0l-89.6-89.601c-2.5-2.5-2.5-6.55,0-9.05C35.124,77.425,36.762,76.8,38.399,76.8z" />
+            </svg>
+          </div>
+          <div class="body-exs">
+            <input type="text" id="input" placeholder="Enter" autofocus>
+            <ul id="list"></ul>
+          </div>
+        </div>
+
+        <!-- /*----------- 27-30. Записная книжка на JavaScript ------------*/ -->
+        <h2 id="h2-27-30" class="title-h2">Записная книжка на JavaScript</h2>
+        <div class="exercise" id="exercises-27-30">
+          <div class="wrap-h3">
+            <h3 class="btn-h3" data-parent="#exercises-27-30">27-30. Записная книжка на JavaScript</h3>
+            <svg class="collapse-expand" width="20" height="20" viewBox="0 0 256 256" xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path
+                d="M38.399,76.8c1.637,0,3.274,0.625,4.524,1.875l85.075,85.076l85.075-85.076c2.5-2.5,6.55-2.5,9.05,0s2.5,6.55,0,9.05  l-89.6,89.601c-2.5,2.5-6.551,2.5-9.051,0l-89.6-89.601c-2.5-2.5-2.5-6.55,0-9.05C35.124,77.425,36.762,76.8,38.399,76.8z" />
+            </svg>
+          </div>
+          <div class="body-exs">
+            <div id="wrapper">
+              <div id="menu">
+                <ul id="notes">
+                </ul>
+                <div id="create">
+                  <button class="btn active">новая запись</button>
+                </div>
+              </div>
+              <div id="text">
+                <textarea name="" id=""></textarea>
+                <button class="btn" data-mode="create">сохранить</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- /*----------- 37. Вопросы и ответы в HTML коде ----------*/ -->
+        <h2 id="h2-37-43" class="title-h2">Тесты</h2>
+        <div class="exercise" id="exercise-37">
+          <div class="wrap-h3">
+            <h3 class="btn-h3" data-parent="#exercise-37">37. Вопросы и ответы в HTML коде</h3>
+            <svg class="collapse-expand" width="20" height="20" viewBox="0 0 256 256" xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path
+                d="M38.399,76.8c1.637,0,3.274,0.625,4.524,1.875l85.075,85.076l85.075-85.076c2.5-2.5,6.55-2.5,9.05,0s2.5,6.55,0,9.05  l-89.6,89.601c-2.5,2.5-6.551,2.5-9.051,0l-89.6-89.601c-2.5-2.5-2.5-6.55,0-9.05C35.124,77.425,36.762,76.8,38.399,76.8z" />
+            </svg>
+          </div>
+          <div class="body-exs exs-test">
+            <div>
+              <span>Вопрос 1?</span>
+              <span>Правильный ответ: 21</span>
+              <input data-right="21">
+            </div>
+            <div>
+              <span>Вопрос 2?</span>
+              <span>Правильный ответ: 11</span>
+              <input data-right="11">
+            </div>
+            <div>
+              <span>Вопрос 3?</span>
+              <span>Правильный ответ: 10</span>
+              <input data-right="10">
+            </div>
+          </div>
+        </div>
+
+        <!-- /*----------- 38. Ответы в массиве -----------------*/ -->
+        <div class="exercise" id="exercise-38">
+          <div class="wrap-h3">
+            <h3 class="btn-h3" data-parent="#exercise-38">38. Ответы в массиве</h3>
+            <svg class="collapse-expand" width="20" height="20" viewBox="0 0 256 256" xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path
+                d="M38.399,76.8c1.637,0,3.274,0.625,4.524,1.875l85.075,85.076l85.075-85.076c2.5-2.5,6.55-2.5,9.05,0s2.5,6.55,0,9.05  l-89.6,89.601c-2.5,2.5-6.551,2.5-9.051,0l-89.6-89.601c-2.5-2.5-2.5-6.55,0-9.05C35.124,77.425,36.762,76.8,38.399,76.8z" />
+            </svg>
+          </div>
+          <div class="body-exs exs-test">
+            <div>
+              <span>Вопрос 1?</span>
+              <span>Правильный ответ: 21</span>
+              <input>
+            </div>
+            <div>
+              <span>Вопрос 2?</span>
+              <span>Правильный ответ: 11</span>
+              <input>
+            </div>
+            <div>
+              <span>Вопрос 3?</span>
+              <span>Правильный ответ: 10</span>
+              <input>
+            </div>
+          </div>
+        </div>
+
+        <!-- /*----------- 39. Вопросы и ответы в массиве -----------*/ -->
+        <div class="exercise" id="exercise-39">
+          <div class="wrap-h3">
+            <h3 class="btn-h3" data-parent="#exercise-39">39. Вопросы и ответы в массиве</h3>
+            <svg class="collapse-expand" width="20" height="20" viewBox="0 0 256 256" xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path
+                d="M38.399,76.8c1.637,0,3.274,0.625,4.524,1.875l85.075,85.076l85.075-85.076c2.5-2.5,6.55-2.5,9.05,0s2.5,6.55,0,9.05  l-89.6,89.601c-2.5,2.5-6.551,2.5-9.051,0l-89.6-89.601c-2.5-2.5-2.5-6.55,0-9.05C35.124,77.425,36.762,76.8,38.399,76.8z" />
+            </svg>
+          </div>
+          <div class="body-exs exs-test" id="exercise-39-body">
+            <button class="btn" id="btn-test-39">Пройти тест</button>
+          </div>
+        </div>
+
+        <!-- /*----------- 40. Вопросы и ответы в объекте -----------*/ -->
+        <div class="exercise" id="exercise-40">
+          <div class="wrap-h3">
+            <h3 class="btn-h3" data-parent="#exercise-40">40. Вопросы и ответы в объекте</h3>
+            <svg class="collapse-expand" width="20" height="20" viewBox="0 0 256 256" xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path
+                d="M38.399,76.8c1.637,0,3.274,0.625,4.524,1.875l85.075,85.076l85.075-85.076c2.5-2.5,6.55-2.5,9.05,0s2.5,6.55,0,9.05  l-89.6,89.601c-2.5,2.5-6.551,2.5-9.051,0l-89.6-89.601c-2.5-2.5-2.5-6.55,0-9.05C35.124,77.425,36.762,76.8,38.399,76.8z" />
+            </svg>
+          </div>
+          <div class="body-exs exs-test" id="exercise-40-body">
+            <button class="btn" id="btn-test-40">Пройти тест</button>
+          </div>
+        </div>
+
+        <!-- /*----------- 41. Варианты ответов в HTML коде -----------*/ -->
+        <div class="exercise" id="exercise-41">
+          <div class="wrap-h3">
+            <h3 class="btn-h3" data-parent="#exercise-41">41. Варианты ответов в HTML коде</h3>
+            <svg class="collapse-expand" width="20" height="20" viewBox="0 0 256 256" xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path
+                d="M38.399,76.8c1.637,0,3.274,0.625,4.524,1.875l85.075,85.076l85.075-85.076c2.5-2.5,6.55-2.5,9.05,0s2.5,6.55,0,9.05  l-89.6,89.601c-2.5,2.5-6.551,2.5-9.051,0l-89.6-89.601c-2.5-2.5-2.5-6.55,0-9.05C35.124,77.425,36.762,76.8,38.399,76.8z" />
+            </svg>
+          </div>
+          <div class="body-exs" id="exercise-41-body">
+            <p>Задача 1 <br> Сделайте так, чтобы при выборе одного из ответов вопроса этот ответ сразу проверялся на
+              правильность.</p>
+            <div class="exs-test-41-43" id="exercise-41-1">
+              <div>
+                <span>вопрос 1?</span>
+
+                <label>
+                  <input type="radio" name="1" data-right>
+                  ответ 1
+                </label>
+                <label>
+                  <input type="radio" name="1">
+                  ответ 2
+                </label>
+                <label>
+                  <input type="radio" name="1">
+                  ответ 3
+                </label>
+              </div>
+              <div>
+                <span>вопрос 2?</span>
+
+                <label>
+                  <input type="radio" name="2">
+                  ответ 1
+                </label>
+                <label>
+                  <input type="radio" name="2" data-right>
+                  ответ 2
+                </label>
+                <label>
+                  <input type="radio" name="2">
+                  ответ 3
+                </label>
+              </div>
+              <div>
+                <span>вопрос 3?</span>
+
+                <label>
+                  <input type="radio" name="3">
+                  ответ 1
+                </label>
+                <label>
+                  <input type="radio" name="3">
+                  ответ 2
+                </label>
+                <label>
+                  <input type="radio" name="3" data-right>
+                  ответ 3
+                </label>
+              </div>
+            </div>
+
+            <p>Задача 2 <br> Модифицируйте ваш код так, чтобы проверка ответов выполнялась по нажатию на кнопку.</p>
+            <div class="exs-test-41-43" id="exercise-41-2">
+              <div>
+                <span>вопрос 1?</span>
+
+                <label>
+                  <input type="radio" name="name-1_41.2" data-right>
+                  ответ 1
+                </label>
+                <label>
+                  <input type="radio" name="name-1_41.2">
+                  ответ 2
+                </label>
+                <label>
+                  <input type="radio" name="name-1_41.2">
+                  ответ 3
+                </label>
+              </div>
+              <div>
+                <span>вопрос 2?</span>
+
+                <label>
+                  <input type="radio" name="name-2_41.2">
+                  ответ 1
+                </label>
+                <label>
+                  <input type="radio" name="name-2_41.2" data-right>
+                  ответ 2
+                </label>
+                <label>
+                  <input type="radio" name="name-2_41.2">
+                  ответ 3
+                </label>
+              </div>
+              <div>
+                <span>вопрос 3?</span>
+
+                <label>
+                  <input type="radio" name="name-3_41.2">
+                  ответ 1
+                </label>
+                <label>
+                  <input type="radio" name="name-3_41.2">
+                  ответ 2
+                </label>
+                <label>
+                  <input type="radio" name="name-3_41.2" data-right>
+                  ответ 3
+                </label>
+              </div>
+
+              <div class="wrap-btn">
+                <button class="btn" id="btn-test-41">Результат теста</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- /*----------- 42. Варианты ответов в массиве -----------*/ -->
+        <div class="exercise" id="exercise-42">
+          <div class="wrap-h3">
+            <h3 class="btn-h3" data-parent="#exercise-42">42. Варианты ответов в массиве</h3>
+            <svg class="collapse-expand" width="20" height="20" viewBox="0 0 256 256" xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path
+                d="M38.399,76.8c1.637,0,3.274,0.625,4.524,1.875l85.075,85.076l85.075-85.076c2.5-2.5,6.55-2.5,9.05,0s2.5,6.55,0,9.05  l-89.6,89.601c-2.5,2.5-6.551,2.5-9.051,0l-89.6-89.601c-2.5-2.5-2.5-6.55,0-9.05C35.124,77.425,36.762,76.8,38.399,76.8z" />
+            </svg>
+          </div>
+          <div class="body-exs" id="exercise-42-body">
+            <div class="exs-test-41-43" id="exercise-41-2">
+              <div>
+                <span>вопрос 1?</span>
+
+                <label>
+                  <input type="radio" name="name-1_42" value="1">
+                  ответ 1
+                </label>
+                <label>
+                  <input type="radio" name="name-1_42" value="2">
+                  ответ 2
+                </label>
+                <label>
+                  <input type="radio" name="name-1_42" value="3">
+                  ответ 3
+                </label>
+              </div>
+              <div>
+                <span>вопрос 2?</span>
+
+                <label>
+                  <input type="radio" name="name-2_42" value="1">
+                  ответ 1
+                </label>
+                <label>
+                  <input type="radio" name="name-2_42" value="2">
+                  ответ 2
+                </label>
+                <label>
+                  <input type="radio" name="name-2_42" value="3">
+                  ответ 3
+                </label>
+              </div>
+              <div>
+                <span>вопрос 3?</span>
+
+                <label>
+                  <input type="radio" name="name-3_42" value="1">
+                  ответ 1
+                </label>
+                <label>
+                  <input type="radio" name="name-3_42" value="2">
+                  ответ 2
+                </label>
+                <label>
+                  <input type="radio" name="name-3_42" value="3">
+                  ответ 3
+                </label>
+              </div>
+
+              <div class="wrap-btn">
+                <button class="btn" id="btn-test-42">Результат теста</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- /*----------- 43. Вопросы и варианты ответов в объекте -----------*/ -->
+        <div class="exercise" id="exercise-43">
+          <div class="wrap-h3">
+            <h3 class="btn-h3" data-parent="#exercise-43">43. Вопросы и варианты ответов в объекте</h3>
+            <svg class="collapse-expand" width="20" height="20" viewBox="0 0 256 256" xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path
+                d="M38.399,76.8c1.637,0,3.274,0.625,4.524,1.875l85.075,85.076l85.075-85.076c2.5-2.5,6.55-2.5,9.05,0s2.5,6.55,0,9.05  l-89.6,89.601c-2.5,2.5-6.551,2.5-9.051,0l-89.6-89.601c-2.5-2.5-2.5-6.55,0-9.05C35.124,77.425,36.762,76.8,38.399,76.8z" />
+            </svg>
+          </div>
+          <div class="body-exs" id="exercise-43-body">
+            <div class="exs-test-41-43" id="exercise-43">
+
+              <div class="wrap-btn">
+                <button class="btn" id="btn-test-43">Результат теста</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div> <!-- /cRight -->
+
+  <div id="bg-popup" class="">
+
+    <div id="popup-author" class="popup-wrap">
+      <div class="wrap-flex">
+
+        <svg id="author-white" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M5 0C2.23858 0 0 2.23857 0 5V295C0 297.761 2.23857 300 5 300H495C497.761 300 500 297.761 500 295V5C500 2.23858 497.761 0 495 0H5ZM418.506 279.944C418.851 280.093 419.182 280.168 419.5 280.168C419.892 280.168 420.265 280.089 420.62 279.93C420.974 279.762 421.287 279.519 421.558 279.202C421.828 278.885 422.043 278.497 422.202 278.04C422.361 277.583 422.44 277.065 422.44 276.486C422.44 275.963 422.379 275.492 422.258 275.072C422.146 274.643 421.973 274.279 421.74 273.98C421.516 273.672 421.236 273.439 420.9 273.28C420.564 273.112 420.176 273.028 419.738 273.028C419.355 273.028 418.982 273.121 418.618 273.308C418.254 273.485 417.918 273.709 417.61 273.98L417.638 272.748V270.032H416.49V280H417.414L417.512 279.3H417.554C417.852 279.571 418.17 279.785 418.506 279.944ZM420.074 279.02C419.84 279.141 419.584 279.202 419.304 279.202C419.08 279.202 418.818 279.151 418.52 279.048C418.23 278.936 417.936 278.749 417.638 278.488V274.918C418.3 274.302 418.907 273.994 419.458 273.994C419.775 273.994 420.046 274.055 420.27 274.176C420.503 274.297 420.69 274.47 420.83 274.694C420.979 274.909 421.086 275.17 421.152 275.478C421.217 275.786 421.25 276.127 421.25 276.5C421.25 276.92 421.198 277.298 421.096 277.634C421.003 277.97 420.867 278.255 420.69 278.488C420.522 278.712 420.316 278.889 420.074 279.02ZM405.732 280.168C405.153 280.168 404.621 280.061 404.136 279.846C403.651 279.631 403.226 279.323 402.862 278.922C402.507 278.511 402.227 278.012 402.022 277.424C401.826 276.827 401.728 276.155 401.728 275.408C401.728 274.671 401.831 274.008 402.036 273.42C402.241 272.832 402.526 272.333 402.89 271.922C403.254 271.511 403.683 271.199 404.178 270.984C404.673 270.76 405.214 270.648 405.802 270.648C406.362 270.648 406.852 270.765 407.272 270.998C407.701 271.222 408.051 271.483 408.322 271.782L407.692 272.538C407.449 272.277 407.174 272.067 406.866 271.908C406.558 271.749 406.208 271.67 405.816 271.67C405.377 271.67 404.981 271.759 404.626 271.936C404.271 272.104 403.968 272.351 403.716 272.678C403.464 272.995 403.268 273.383 403.128 273.84C402.997 274.297 402.932 274.811 402.932 275.38C402.932 275.959 402.997 276.481 403.128 276.948C403.268 277.405 403.459 277.797 403.702 278.124C403.945 278.451 404.239 278.703 404.584 278.88C404.939 279.057 405.335 279.146 405.774 279.146C406.222 279.146 406.614 279.057 406.95 278.88C407.286 278.693 407.603 278.437 407.902 278.11L408.546 278.838C408.182 279.258 407.771 279.585 407.314 279.818C406.857 280.051 406.329 280.168 405.732 280.168ZM410.067 282.926C409.908 282.926 409.763 282.912 409.633 282.884C409.502 282.865 409.381 282.833 409.269 282.786L409.493 281.876C409.567 281.895 409.651 281.913 409.745 281.932C409.838 281.96 409.927 281.974 410.011 281.974C410.403 281.974 410.72 281.834 410.963 281.554C411.215 281.283 411.411 280.938 411.551 280.518L411.705 280.014L408.975 273.196H410.165L411.551 276.962C411.58 277.047 411.609 277.133 411.639 277.22L411.684 277.354L411.723 277.468C411.772 277.613 411.822 277.762 411.873 277.914C411.994 278.241 412.106 278.563 412.209 278.88H412.265C412.367 278.572 412.465 278.25 412.559 277.914C412.652 277.578 412.745 277.261 412.839 276.962L414.057 273.196H415.177L412.615 280.56C412.493 280.896 412.358 281.209 412.209 281.498C412.059 281.787 411.882 282.035 411.677 282.24C411.471 282.455 411.238 282.623 410.977 282.744C410.715 282.865 410.412 282.926 410.067 282.926ZM426.986 280.168C426.529 280.168 426.099 280.089 425.698 279.93C425.306 279.762 424.961 279.529 424.662 279.23C424.373 278.922 424.144 278.549 423.976 278.11C423.808 277.671 423.724 277.172 423.724 276.612C423.724 276.052 423.808 275.553 423.976 275.114C424.153 274.666 424.382 274.288 424.662 273.98C424.951 273.672 425.278 273.439 425.642 273.28C426.006 273.112 426.384 273.028 426.776 273.028C427.205 273.028 427.588 273.103 427.924 273.252C428.269 273.401 428.554 273.616 428.778 273.896C429.011 274.176 429.189 274.512 429.31 274.904C429.431 275.296 429.492 275.735 429.492 276.22C429.492 276.341 429.487 276.463 429.478 276.584C429.478 276.696 429.469 276.794 429.45 276.878H424.858C424.905 277.606 425.129 278.185 425.53 278.614C425.941 279.034 426.473 279.244 427.126 279.244C427.453 279.244 427.751 279.197 428.022 279.104C428.302 279.001 428.568 278.871 428.82 278.712L429.226 279.468C428.927 279.655 428.596 279.818 428.232 279.958C427.868 280.098 427.453 280.168 426.986 280.168ZM424.844 276.052H428.484C428.484 275.361 428.335 274.839 428.036 274.484C427.747 274.12 427.336 273.938 426.804 273.938C426.561 273.938 426.328 273.985 426.104 274.078C425.889 274.171 425.693 274.311 425.516 274.498C425.339 274.675 425.189 274.895 425.068 275.156C424.956 275.417 424.881 275.716 424.844 276.052ZM431.173 273.196V280H432.321V275.632C432.555 275.053 432.825 274.647 433.133 274.414C433.451 274.181 433.754 274.064 434.043 274.064C434.183 274.064 434.3 274.073 434.393 274.092C434.487 274.111 434.589 274.139 434.701 274.176L434.925 273.168C434.711 273.075 434.468 273.028 434.197 273.028C433.805 273.028 433.441 273.154 433.105 273.406C432.779 273.658 432.499 273.999 432.265 274.428H432.223L432.125 273.196H431.173ZM436.139 270.816H438.757C439.27 270.816 439.737 270.863 440.157 270.956C440.586 271.049 440.95 271.203 441.249 271.418C441.548 271.623 441.781 271.899 441.949 272.244C442.117 272.589 442.201 273.014 442.201 273.518C442.201 274.003 442.117 274.423 441.949 274.778C441.79 275.133 441.562 275.427 441.263 275.66C440.964 275.893 440.605 276.071 440.185 276.192C439.774 276.304 439.317 276.36 438.813 276.36H437.301V280H436.139V270.816ZM437.301 275.408H438.673C439.476 275.408 440.068 275.259 440.451 274.96C440.843 274.652 441.039 274.171 441.039 273.518C441.039 272.855 440.834 272.398 440.423 272.146C440.022 271.885 439.42 271.754 438.617 271.754H437.301V275.408ZM444.349 279.496C444.685 279.944 445.217 280.168 445.945 280.168C446.421 280.168 446.831 280.056 447.177 279.832C447.531 279.608 447.867 279.309 448.185 278.936H448.227L448.325 280H449.277V273.196H448.129V278.026C447.802 278.427 447.503 278.721 447.233 278.908C446.962 279.085 446.649 279.174 446.295 279.174C445.847 279.174 445.52 279.034 445.315 278.754C445.119 278.465 445.021 277.998 445.021 277.354V273.196H443.859V277.508C443.859 278.385 444.022 279.048 444.349 279.496ZM451.572 280V273.196H452.524L452.622 274.176H452.664C452.991 273.849 453.331 273.579 453.686 273.364C454.05 273.14 454.47 273.028 454.946 273.028C455.665 273.028 456.187 273.252 456.514 273.7C456.85 274.148 457.018 274.811 457.018 275.688V280H455.87V275.842C455.87 275.198 455.767 274.736 455.562 274.456C455.357 274.167 455.03 274.022 454.582 274.022C454.227 274.022 453.915 274.111 453.644 274.288C453.373 274.465 453.065 274.727 452.72 275.072V280H451.572ZM459.228 270.032V280H460.362V278.208L461.636 276.724L463.624 280H464.884L462.294 275.926L464.576 273.196H463.302L460.404 276.78H460.362V270.032H459.228ZM466.118 280V279.048H468.162V272.468H466.538V271.726C466.948 271.651 467.303 271.563 467.602 271.46C467.91 271.348 468.185 271.217 468.428 271.068H469.31V279.048H471.158V280H466.118ZM473.343 278.964C473.847 279.767 474.551 280.168 475.457 280.168C476.353 280.168 477.053 279.767 477.557 278.964C478.061 278.161 478.313 277.009 478.313 275.506C478.313 274.003 478.061 272.86 477.557 272.076C477.053 271.292 476.353 270.9 475.457 270.9C474.551 270.9 473.847 271.292 473.343 272.076C472.839 272.86 472.587 274.003 472.587 275.506C472.587 277.009 472.839 278.161 473.343 278.964ZM476.157 279.034C475.951 279.174 475.718 279.244 475.457 279.244C474.934 279.244 474.509 278.95 474.183 278.362C473.865 277.765 473.707 276.813 473.707 275.506C473.707 274.853 473.749 274.293 473.833 273.826C473.917 273.359 474.033 272.981 474.183 272.692C474.341 272.393 474.528 272.174 474.743 272.034C474.957 271.894 475.195 271.824 475.457 271.824C475.718 271.824 475.951 271.894 476.157 272.034C476.371 272.174 476.553 272.393 476.703 272.692C476.861 272.981 476.983 273.359 477.067 273.826C477.151 274.293 477.193 274.853 477.193 275.506C477.193 276.159 477.151 276.724 477.067 277.2C476.983 277.667 476.861 278.054 476.703 278.362C476.553 278.661 476.371 278.885 476.157 279.034ZM468.646 10.6464C468.842 10.4512 469.158 10.4512 469.354 10.6464L479.062 20.3554L488.771 10.6464C488.967 10.4512 489.283 10.4512 489.479 10.6464C489.674 10.8417 489.674 11.1583 489.479 11.3536L479.77 21.0625L489.479 30.7714C489.674 30.9667 489.674 31.2833 489.479 31.4786C489.283 31.6738 488.967 31.6738 488.771 31.4786L479.062 21.7696L469.354 31.4786C469.158 31.6738 468.842 31.6738 468.646 31.4786C468.451 31.2833 468.451 30.9667 468.646 30.7714L478.355 21.0625L468.646 11.3536C468.451 11.1583 468.451 10.8417 468.646 10.6464Z" />
+        </svg>
+
+        <div>
+
+          <p>Привет! <br>Этот сайт является частью моего портфолио. <br> Контакты для обратной связи</p>
+
+          <div>
+            <a href="https://vk.com/cyberpunk10">Вконтакте</a>
+            <a href="https://github.com/CyberPunk10">GitHub</a>
+          </div>
+
+          <svg class="popup-close" data-popup="#popup-author" width="21" height="21" viewBox="0 0 48 48"
+            xmlns="http://www.w3.org/2000/svg">
+            <line x1="1" x2="47" y1="47" y2="1" />
+            <line x1="1" x2="47" y1="1" y2="47" />
+          </svg>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div id="popup-cube" class="popup-wrap">
+      <div class="wrap-flex">
+        <svg class="popup-close" data-popup="#popup-cube" width="21" height="21" viewBox="0 0 48 48"
+          xmlns="http://www.w3.org/2000/svg">
+          <line x1="1" x2="47" y1="47" y2="1" />
+          <line x1="1" x2="47" y1="1" y2="47" />
+        </svg>
+
+        <div id="wrapper-cube">
+          <div id="cube">
+            <div class="side" id="up">up</div>
+            <div class="side" id="down">down</div>
+            <div class="side" id="left">left</div>
+            <div class="side" id="right">right</div>
+            <div class="side" id="front">
+              <p>Привет! <br>Этот сайт является частью моего портфолио. <br> Контакты для обратной связи</p>
+              <div>
+                <a href="https://vk.com/cyberpunk10">Вконтакте</a>
+                <a href="https://github.com/CyberPunk10">GitHub</a>
+              </div>
+            </div>
+            <div class="side" id="back">back</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <script src="highlighter/highlighter.js"></script>
+
+  <script src="js/script.js"></script>
+  <script src="js/tasks.js"></script>
+  <script src="js/codeFor_cCenter.js"></script>
+
+
+</body>
+
+</html>
